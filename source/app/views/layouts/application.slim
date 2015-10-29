@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+    title Pomidor - Mange your tasks in new way
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  body
+    = render 'layouts/navbar'
+    .container
+      .row
+        .col-lg-12
+          = flash[:notice]
+          = flash[:alert]
+      .row
+        .col-lg-12
+          = yield
+
+      footer
+        p &copy; Sebastian Wilgosz

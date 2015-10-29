@@ -8,15 +8,28 @@ class ListsController < ApplicationController
       params[:per_page] = 10
       params[:page] = 0
     end
-    @lists = List.all.order(created_at: :desc).offset(offset).limit(params[:per_page].to_i)
+    @lists = List.all.offset(offset).limit(params[:per_page])
 
-    respond_with @lists, each_serializer: ListSerializer
+    respond_to do |format|
+      format.html
+      format.json { render json: @lists }
+    end
   end
 
   def show
     @list = List.find(params[:id])
 
-    respond_with @list, serializer: ListSerializer
+    respond_to do |format|
+      format.html
+      format.json { render json: @list }
+    end
+  end
+
+  def new
+    @list = List.new
+  end
+
+  def edit
   end
 
   def create

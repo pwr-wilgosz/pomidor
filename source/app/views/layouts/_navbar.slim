@@ -1,0 +1,39 @@
+.navbar.navbar-default.navbar-static-top
+  .container-fluid
+
+    .navbar-header
+      button.navbar-toggle.collapsed type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="false"
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      = link_to "Pomidor", root_url, class: "navbar-brand"
+
+    #main-nav.collapse.navbar-collapse
+      ul.nav.navbar-nav
+        li.active
+          = link_to "Moje listy zadań", lists_path
+
+        li.dropdown
+          a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"
+            | Więcej
+            span.caret
+          ul.dropdown-menu
+            li = link_to "Dodaj listę", new_list_path
+            li
+              a href="#" Another action
+
+            li.divider role="separator"
+            li
+              a href="#" Separated link
+            li.divider role="separator"
+            li
+              a href="#" One more separated link
+
+      ul.nav.navbar-nav.navbar-right
+        li
+        - if user_signed_in?
+          li = link_to "Logged in as #{current_user.email}", "#"
+          li = link_to "Wyloguj", destroy_user_session_path
+        - else
+          li = link_to "Zaloguj", new_user_session_path
+          li = link_to "Zarejestruj", new_user_registration_path
