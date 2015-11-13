@@ -36,21 +36,18 @@
 	"buffers":
 	[
 		{
-			"file": "models/dbmanip.py",
+			"file": "models/model.py",
 			"settings":
 			{
-				"buffer_size": 1545,
+				"buffer_size": 1859,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "class Model:\n	def __init__(self):\n		self.db = None\n\n	\n",
-			"file": "models/model.py",
-			"file_size": 0,
-			"file_write_time": 1447435431000000,
+			"file": "models/dbmanip.py",
 			"settings":
 			{
-				"buffer_size": 54,
+				"buffer_size": 1622,
 				"line_ending": "Unix"
 			}
 		},
@@ -58,7 +55,15 @@
 			"file": "models/list.py",
 			"settings":
 			{
-				"buffer_size": 165,
+				"buffer_size": 414,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "manager.py",
+			"settings":
+			{
+				"buffer_size": 1173,
 				"line_ending": "Unix"
 			}
 		},
@@ -67,17 +72,6 @@
 			"settings":
 			{
 				"buffer_size": 506,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "from ",
-			"file": "manager.py",
-			"file_size": 0,
-			"file_write_time": 1447435616000000,
-			"settings":
-			{
-				"buffer_size": 5,
 				"line_ending": "Unix"
 			}
 		}
@@ -106,6 +100,7 @@
 	},
 	"file_history":
 	[
+		"/home/rafszt/Programowanie/pomidor/mobilne/unstable/pomidor_unstable.sublime-project",
 		"/home/rafszt/Programowanie/pomidor/mobilne/unstable/pomodoro.kv",
 		"/home/rafszt/Programowanie/pomidor/mobilne/unstable/main.py",
 		"/home/rafszt/Programowanie/pomidor/mobilne/unstable/req_try.py",
@@ -177,57 +172,31 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "models/dbmanip.py",
-					"settings":
-					{
-						"buffer_size": 1545,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								51,
-								51
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage"
-						},
-						"translation.x": 2.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
 					"file": "models/model.py",
 					"settings":
 					{
-						"buffer_size": 54,
+						"buffer_size": 1859,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								53,
-								53
+								1060,
+								1060
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/Python/Python.tmLanguage"
 						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.x": 3.0,
+						"translation.y": 39.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -239,19 +208,45 @@
 			"sheets":
 			[
 				{
-					"buffer": 2,
-					"file": "models/list.py",
+					"buffer": 1,
+					"file": "models/dbmanip.py",
 					"settings":
 					{
-						"buffer_size": 165,
+						"buffer_size": 1622,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								165,
-								165
+								74,
+								74
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "models/list.py",
+					"settings":
+					{
+						"buffer_size": 414,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								175,
+								175
 							]
 						],
 						"settings":
@@ -266,6 +261,38 @@
 				},
 				{
 					"buffer": 3,
+					"file": "manager.py",
+					"settings":
+					{
+						"buffer_size": 1173,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								540,
+								540
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 39.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 4,
 					"file": "models/dbcreat.py",
 					"settings":
 					{
@@ -276,40 +303,14 @@
 						"selection":
 						[
 							[
-								506,
-								506
+								270,
+								270
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/Python/Python.tmLanguage",
 							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "manager.py",
-					"settings":
-					{
-						"buffer_size": 5,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								5,
-								5
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -343,12 +344,19 @@
 				0,
 				2,
 				1
+			],
+			[
+				2,
+				0,
+				3,
+				1
 			]
 		],
 		"cols":
 		[
 			0.0,
-			0.581453634085,
+			0.539540229885,
+			0.771875,
 			1.0
 		],
 		"rows":

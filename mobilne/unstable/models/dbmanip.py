@@ -2,7 +2,7 @@ import sqlite3
 
 class DBManip:
 	def __init__(self):
-		file = './pomidor_db.sqlite'
+		file = '/home/rafszt/Programowanie/pomidor/mobilne/unstable/models/pomidor_db.sqlite'
 		self.conn = sqlite3.connect(file, detect_types=sqlite3.PARSE_DECLTYPES)
 		
 
@@ -24,6 +24,7 @@ class DBManip:
 		cols_str = ", ".join(cols)
 		select_str = "SELECT {w} FROM {f} WHERE {wh}".\
 					format(w=cols_str, f=from_tab, wh=where)
+		print(select_str)
 		read = self.Read(select_str)
 		packedResult = self.PackResult(cols, read)
 		return packedResult
