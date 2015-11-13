@@ -7,8 +7,8 @@ db.Write('CREATE TABLE lists (\
 	identifier TEXT PRIMARY KEY,\
 	name TEXT,\
 	user_id INTEGER,\
-	created_at TEXT NOT NULL,\
-	updated_at TEXT NOT NULL)')
+	created_at TIMESTAMP NOT NULL,\
+	updated_at TIMESTAMP NOT NULL)')
 
 #tabela zadania
 db.Write('CREATE TABLE tasks (\
@@ -17,6 +17,6 @@ db.Write('CREATE TABLE tasks (\
 	list_identifier TEXT,\
 	duration INTEGER,\
 	priority INTEGER,\
-	created_at TEXT NOT NULL,\
-	updated_at TEXT NOT NULL,\
+	created_at TIMESTAMP NOT NULL,\
+	updated_at TIMESTAMP NOT NULL,\
 	FOREIGN KEY (list_identifier) REFERENCES lists(identifier))')

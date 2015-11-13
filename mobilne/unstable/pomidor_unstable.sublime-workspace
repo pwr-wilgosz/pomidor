@@ -1,0 +1,392 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"ins",
+				"insert_str"
+			],
+			[
+				"from",
+				"from_tab"
+			],
+			[
+				"sem",
+				"semafId"
+			],
+			[
+				"mon",
+				"monkNumBuf"
+			],
+			[
+				"monk",
+				"monkNr"
+			],
+			[
+				"SEM",
+				"SEMAF_NUMBER"
+			],
+			[
+				"SHM",
+				"SHM_SIZE"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "models/dbmanip.py",
+			"settings":
+			{
+				"buffer_size": 1545,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "class Model:\n	def __init__(self):\n		self.db = None\n\n	\n",
+			"file": "models/model.py",
+			"file_size": 0,
+			"file_write_time": 1447435431000000,
+			"settings":
+			{
+				"buffer_size": 54,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "models/list.py",
+			"settings":
+			{
+				"buffer_size": 165,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "models/dbcreat.py",
+			"settings":
+			{
+				"buffer_size": 506,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "from ",
+			"file": "manager.py",
+			"file_size": 0,
+			"file_write_time": 1447435616000000,
+			"settings":
+			{
+				"buffer_size": 5,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/rafszt/Programowanie/pomidor/mobilne/unstable/pomodoro.kv",
+		"/home/rafszt/Programowanie/pomidor/mobilne/unstable/main.py",
+		"/home/rafszt/Programowanie/pomidor/mobilne/unstable/req_try.py",
+		"/home/rafszt/Programowanie/pomidor/mobilne/unstable/hello.py",
+		"/home/rafszt/Programowanie/pomidor/mobilne/unstable/models/dbcreat.py",
+		"/home/rafszt/Programowanie/pomidor/mobilne/unstable/splash.kv",
+		"/home/rafszt/regulamin/REGULAMIN.txt",
+		"/tmp/confirm_request_email_again.tpl",
+		"/tmp/confirm_request_email_first.tpl",
+		"/home/rafszt/Programowanie/SSO/lab4/five_phils_without_lock.c",
+		"/home/rafszt/Programowanie/pomidor/info.txt",
+		"/tmp/mc-rafszt/fishIFH57Xconfirm_request_email_first.tpl",
+		"/home/rafszt/Programowanie/SSO/lab4/Makefile",
+		"/home/rafszt/Programowanie/SSO/lab4/phil.c",
+		"/home/rafszt/Programowanie/SSO/lab4/five_phils.c",
+		"/home/rafszt/Programowanie/SSO/lab4/simple_exec.c",
+		"/home/rafszt/Programowanie/SSO/lab2/simple_exec.c",
+		"/home/rafszt/Programowanie/SSO/lab2/Makefile",
+		"/home/rafszt/Programowanie/SSO/lab2/shell_exec.c",
+		"/home/rafszt/Programowanie/SSO/lab4/create_nod.c",
+		"/media/rafszt/Windows/Users/pc/Documents/Studia/SKT/Finanse/Sklep_pwr_rozliczanie_biletow.txt",
+		"/tmp/proxy.pac",
+		"/home/rafszt/Programowanie/SSO/lab3/write.c",
+		"/home/rafszt/.config/mc/mc.ext",
+		"/media/rafszt/Windows/Users/pc/Documents/Studia/SKT/Wyjazdy wyprawy rajdy/40RajdElektryka/Koszulki/info.txt",
+		"/media/rafszt/Windows/Users/pc/Documents/Studia/SKT/Finanse/info.txt",
+		"/tmp/uczelnie.png",
+		"/media/rafszt/Windows/Users/pc/Documents/Studia/SKT/Finanse/%f",
+		"/home/rafszt/0r"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"select_str",
+			"what_str",
+			"what",
+			"leftFork",
+			"shmDescr",
+			"prog2",
+			"1",
+			"des_p"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "models/dbmanip.py",
+					"settings":
+					{
+						"buffer_size": 1545,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								51,
+								51
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 2.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "models/model.py",
+					"settings":
+					{
+						"buffer_size": 54,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								53,
+								53
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 2,
+					"file": "models/list.py",
+					"settings":
+					{
+						"buffer_size": 165,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								165,
+								165
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "models/dbcreat.py",
+					"settings":
+					{
+						"buffer_size": 506,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								506,
+								506
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "manager.py",
+					"settings":
+					{
+						"buffer_size": 5,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5,
+								5
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.581453634085,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 239.0
+	},
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true
+}
