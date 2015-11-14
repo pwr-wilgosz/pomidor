@@ -50,6 +50,20 @@ class DBManip:
 					format(dt=dest_tab, col=cols_str, vals=data_str)
 		self.Write(insert_str)	
 
+	def Update(self, tab, data, where):
+		""" Perform SQL update query, given 
+			tab - name of table
+			data - col-new_value dictionary  
+			where - conditions that select rows to modify
+		returns: None 
+		"""
+		set_tab = []
+		for it in range(len(myDict)):
+			set_tab.append("{}='{}'".format(myDict.keys()[it], myDict.values()[it]))
+		set_str = ", ".join(set_tab)	
+		insert_str = "UPDATE {t} SET {s} WHERE {w}".\
+					format(t=tab, s=set_str, w=where)
+		self.Write(insert_str)	
 
 	def __exit__(self, exc_type, exc_value, traceback):
 		self.conn.commit()

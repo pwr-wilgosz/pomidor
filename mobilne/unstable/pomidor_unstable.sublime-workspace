@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"lis",
+				"list_id"
+			],
+			[
+				"rand",
+				"randstr"
+			],
+			[
 				"ins",
 				"insert_str"
 			],
@@ -39,7 +47,7 @@
 			"file": "models/model.py",
 			"settings":
 			{
-				"buffer_size": 1859,
+				"buffer_size": 2850,
 				"line_ending": "Unix"
 			}
 		},
@@ -47,7 +55,7 @@
 			"file": "models/dbmanip.py",
 			"settings":
 			{
-				"buffer_size": 1622,
+				"buffer_size": 2098,
 				"line_ending": "Unix"
 			}
 		},
@@ -63,7 +71,7 @@
 			"file": "manager.py",
 			"settings":
 			{
-				"buffer_size": 1173,
+				"buffer_size": 1702,
 				"line_ending": "Unix"
 			}
 		},
@@ -71,7 +79,7 @@
 			"file": "models/dbcreat.py",
 			"settings":
 			{
-				"buffer_size": 506,
+				"buffer_size": 820,
 				"line_ending": "Unix"
 			}
 		}
@@ -147,6 +155,14 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"data_str",
+			"VALUES",
+			"new_colval_pairs",
+			"currUserId",
+			"user_id",
+			"List",
+			"lists",
+			"singleList",
 			"select_str",
 			"what_str",
 			"what",
@@ -180,23 +196,24 @@
 					"file": "models/model.py",
 					"settings":
 					{
-						"buffer_size": 1859,
+						"buffer_size": 2850,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1060,
-								1060
+								1569,
+								1569
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Python/Python.tmLanguage"
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
-						"translation.x": 3.0,
-						"translation.y": 39.0,
+						"translation.x": 0.0,
+						"translation.y": 390.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -212,23 +229,24 @@
 					"file": "models/dbmanip.py",
 					"settings":
 					{
-						"buffer_size": 1622,
+						"buffer_size": 2098,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								74,
-								74
+								1889,
+								1889
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Python/Python.tmLanguage"
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 234.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -251,7 +269,8 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/Python/Python.tmLanguage"
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -264,23 +283,24 @@
 					"file": "manager.py",
 					"settings":
 					{
-						"buffer_size": 1173,
+						"buffer_size": 1702,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								540,
-								540
+								1509,
+								1509
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Python/Python.tmLanguage"
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 39.0,
+						"translation.y": 234.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -296,15 +316,15 @@
 					"file": "models/dbcreat.py",
 					"settings":
 					{
-						"buffer_size": 506,
+						"buffer_size": 820,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								270,
-								270
+								820,
+								820
 							]
 						],
 						"settings":
@@ -355,8 +375,8 @@
 		"cols":
 		[
 			0.0,
-			0.539540229885,
-			0.771875,
+			0.432643678161,
+			0.584288793103,
 			1.0
 		],
 		"rows":
