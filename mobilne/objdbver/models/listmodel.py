@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, String, DateTime
 from datetime import datetime
-from dbmgr import Base
 import random
+from base import Base
 
 class ListModel(Base):
 	__tablename__ = 'lists'
