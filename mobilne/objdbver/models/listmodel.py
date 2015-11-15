@@ -1,14 +1,11 @@
-from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String, DateTime
 from datetime import datetime
+from dbmgr import Base
 import random
-
-# ORM base
-Base = declarative_base()
 
 class ListModel(Base):
 	__tablename__ = 'lists'
-	listPrefix = 'pom1_'
+	listPrefix = 'rpi_'
 
 	identifier = Column(String, primary_key=True)
 	name = Column(String, nullable=False)
@@ -31,6 +28,7 @@ class ListModel(Base):
 			.format(nazwa=self.name, \
 				cr=self.created_at.strftime("%d %b %Y, %H:%M"), \
 				mod=self.updated_at.strftime("%d %b %Y, %H:%M"))
+	
 	def __repr__(self):
 		return self.__str__()
 
@@ -42,3 +40,12 @@ class ListModel(Base):
 		newId = self.listPrefix + randstr
 		print("Generated new task id: {}".format(newId))
 		return newId
+
+	def Modify(self, name):
+		""" Modyfies record args and set updated_at datetime
+			name - changed name
+		returns self
+		"""
+		self.name = name
+		self.updated_at = datetime.now()
+		return self
