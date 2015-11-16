@@ -1,5 +1,6 @@
 <RootWidget>:
 # main layout.
+    lists_content: lists_content
     GridLayout:
         id: root_window
         spacing: 2
@@ -37,31 +38,67 @@
 
                 #Strona - zawartość
                 BoxLayout:
-                    id: lists_content
-                    size: root.size
                     orientation: "vertical"
 
                     #Wprowadzanie nazwy nowej listy
                     BoxLayout:
-                        size_hint_x: 1
-                        size_hint_y: None
+                        size_hint: None, None
+                        size: root.width-70, 30
 
                         TextInput:
-                            height: 20.0
                             multiline: False
-                            keyboard_mode: 'managed'
-                            cursor_blink: False
-                            suggestion_text: ''
-                            selection_text: ''
                             id: lists_new_name
                             size_hint_x:4
-                            text_size: root.width, None
+                            text_size: self.size
+                            valign: 'middle'
                             hint_text: "Nazwa nowej listy"
                         Button:
                             id: lists_new_accept
                             size_hint_x:1
-                            size: 20, 20
                             text: "Dodaj"
+                    #Lista list
+                    ScrollView
+                        size: root.size
+                        GridLayout:
+                            id: lists_content
+                            size_hint_y: None
+                            cols: 1
+                            row_default_height: '40dp'
+                            row_force_default: True
+                            spacing: 0, 0
+                            padding: 0, 0
+
+                            Label:
+                                text: "Lorem ipsum dolor sit amet"
+                            Label:
+                                text: "Lorem ipsum dolor sit amet"
+                            Label:
+                                text: "Lorem ipsum dolor sit amet"
+                            Label:
+                                text: "Lorem ipsum dolor sit amet"
+                            Label:
+                                text: "Lorem ipsum dolor sit amet"
+                            Label:
+                                text: "Lorem ipsum dolor sit amet"
+                            Label:
+                                text: "Lorem ipsum dolor sit amet"
+                            Label:
+                                text: "Lorem ipsum dolor sit amet"
+                            Label:
+                                text: "Lorem ipsum dolor sit amet"
+                            Label:
+                                text: "Lorem ipsum dolor sit amet"
+                            Label:
+                                text: "Lorem ipsum dolor sit amet"
+                            Label:
+                                text: "Lorem ipsum dolor sit amet"
+                            Label:
+                                text: "Lorem ipsum dolor sit amet"
+                            Label:
+                                text: "Lorem ipsum dolor sit amet"
+                            Label:
+                                text: "Lorem ipsum dolor sit amet"
+                        
 
 
             Button:
@@ -93,12 +130,14 @@
                         text: 'Save As'
                     ActionButton:
                         text: 'Quit'
+
 
 
 
 
 
 # main layout.
+    lists_content: lists_content
     GridLayout:
         id: root_window
         spacing: 2
@@ -136,25 +175,67 @@
 
                 #Strona - zawartość
                 BoxLayout:
-                    id: lists_content
-                    size: root.size
                     orientation: "vertical"
 
                     #Wprowadzanie nazwy nowej listy
                     BoxLayout:
-                        size_hint_x: 1
-                        size_hint_y: None
+                        size_hint: None, None
+                        size: root.width-70, 30
 
                         TextInput:
+                            multiline: False
                             id: lists_new_name
                             size_hint_x:4
-                            text_size: root.width, None
+                            text_size: self.size
+                            valign: 'middle'
                             hint_text: "Nazwa nowej listy"
                         Button:
                             id: lists_new_accept
                             size_hint_x:1
-                            size: 20, 20
                             text: "Dodaj"
+                    #Lista list
+                    ScrollView
+                        size: root.size
+                        GridLayout:
+                            id: lists_content
+                            size_hint_y: None
+                            cols: 1
+                            row_default_height: '40dp'
+                            row_force_default: True
+                            spacing: 0, 0
+                            padding: 0, 0
+
+                            Label:
+                                text: "Lorem ipsum dolor sit amet"
+                            Label:
+                                text: "Lorem ipsum dolor sit amet"
+                            Label:
+                                text: "Lorem ipsum dolor sit amet"
+                            Label:
+                                text: "Lorem ipsum dolor sit amet"
+                            Label:
+                                text: "Lorem ipsum dolor sit amet"
+                            Label:
+                                text: "Lorem ipsum dolor sit amet"
+                            Label:
+                                text: "Lorem ipsum dolor sit amet"
+                            Label:
+                                text: "Lorem ipsum dolor sit amet"
+                            Label:
+                                text: "Lorem ipsum dolor sit amet"
+                            Label:
+                                text: "Lorem ipsum dolor sit amet"
+                            Label:
+                                text: "Lorem ipsum dolor sit amet"
+                            Label:
+                                text: "Lorem ipsum dolor sit amet"
+                            Label:
+                                text: "Lorem ipsum dolor sit amet"
+                            Label:
+                                text: "Lorem ipsum dolor sit amet"
+                            Label:
+                                text: "Lorem ipsum dolor sit amet"
+                        
 
 
             Button:
@@ -186,6 +267,7 @@
                         text: 'Save As'
                     ActionButton:
                         text: 'Quit'
+
 
 
 
