@@ -1,0 +1,63 @@
+<RootWidget>:
+# main layout.
+    GridLayout:
+        spacing: 2
+        padding: 0
+        cols: 1
+        rows: 2
+        
+        #zawartosc stron
+        PageLayout:
+            GridLayout:
+                spacing: 0
+                padding: 0
+                cols: 2
+                rows: 1
+                FloatLayout:
+                    size_hint_x: 1
+                    Label:
+                        #pos: {0,0}
+                        #valign: 'top'
+                        
+                        text: 'hello world'
+                        #canvas.before:
+                        #    PushMatrix
+                        #    Rotate:
+                        #        angle: 90
+                        #        origin: self.center
+                        #canvas.after:
+                        #    PopMatrix
+                Button:
+                    size_hint_x: 2
+                    text: "bouton 5"
+            Button:
+                text: "bouton 6"
+            Button:
+                text: "bouton 7"
+
+        #pasek menu - dolny 
+        ActionBar:
+            pos_hint: {'top':1}
+            ActionView:
+                use_separator: True
+                ActionPrevious:
+                    title: 'Action Bar'
+                    with_previous: False
+                ActionGroup:
+                    text: 'File'
+                    mode: 'spinner'
+                    size_hint_x: None
+                    width: 90
+                    ActionButton:
+                        text: 'New'
+                    ActionButton:
+                        text: 'Open'
+                    ActionButton:
+                        text: 'Save'
+                    ActionButton:
+                        text: 'Save As'
+                    ActionButton:
+                        text: 'Quit'
+
+
+
