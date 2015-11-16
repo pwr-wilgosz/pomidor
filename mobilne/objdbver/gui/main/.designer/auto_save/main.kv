@@ -1,6 +1,7 @@
 <RootWidget>:
 # main layout.
     lists_content: lists_content
+    tasks_content: tasks_content
     GridLayout:
         id: root_window
         spacing: 2
@@ -11,6 +12,8 @@
         #Ramka z przesuwającymi się stronami
         PageLayout:
             id: pages_container
+            
+            #LISTY ZADANIOWE!
             #Ramka strony
             GridLayout:
                 id: lists_main
@@ -18,6 +21,14 @@
                 padding: 0
                 cols: 2
                 rows: 1
+
+                #tlo
+                canvas:
+                    Color:
+                        hsv: 1, .5, .3
+                    Rectangle:
+                        pos: self.pos
+                        size: self.width, self.height
 
                 #Etykieta strony
                 Label:
@@ -98,11 +109,104 @@
                                 text: "Lorem ipsum dolor sit amet"
                             Label:
                                 text: "Lorem ipsum dolor sit amet"
-                        
+
+            #WYBOR/EDYCJA/DODAWANIE ZADAN
+            #Ramka strony
+            GridLayout:
+                id: tasks_main
+                spacing: 0
+                padding: 0
+                cols: 2
+                rows: 1
+
+                #tlo
+                canvas:
+                    Color:
+                        hsv: 1, .5, .3
+                    Rectangle:
+                        pos: self.pos
+                        size: self.width, self.height
 
 
-            Button:
-                text: "bouton 6"
+                #Etykieta strony
+                Label:
+                    id: tasks_label
+                    text: "Wybierz listę"
+                    size_hint_x: None
+                    size: 20, 10
+                    text_size: root.width, None
+                    halign: 'center'
+                    valign: 'top'
+                    canvas.before:
+                        PushMatrix
+                        Rotate:
+                            angle: 90
+                            origin: self.center
+                    canvas.after:
+                        PopMatrix
+
+                #Strona - zawartość
+                BoxLayout:
+                    orientation: "vertical"
+
+                    #Wprowadzanie nazwy nowej listy
+                    BoxLayout:
+                        size_hint: None, None
+                        size: root.width-70, 30
+
+                        TextInput:
+                            multiline: False
+                            id: tasks_new_name
+                            size_hint_x:4
+                            text_size: self.size
+                            valign: 'middle'
+                            hint_text: "Nazwa nowej listy"
+                        Button:
+                            id: tasks_new_accept
+                            size_hint_x:1
+                            text: "Dodaj"
+                    #Lista list
+                    ScrollView
+                        size: root.size
+                        GridLayout:
+                            id: tasks_content
+                            size_hint_y: None
+                            cols: 1
+                            row_default_height: '40dp'
+                            row_force_default: True
+                            spacing: 0, 0
+                            padding: 0, 0
+
+                            Label:
+                                text: "Lorem ipsum dolor sit amet"
+                            Label:
+                                text: "Lorem ipsum dolor sit amet"
+                            Label:
+                                text: "Lorem ipsum dolor sit amet"
+                            Label:
+                                text: "Lorem ipsum dolor sit amet"
+                            Label:
+                                text: "Lorem ipsum dolor sit amet"
+                            Label:
+                                text: "Lorem ipsum dolor sit amet"
+                            Label:
+                                text: "Lorem ipsum dolor sit amet"
+                            Label:
+                                text: "Lorem ipsum dolor sit amet"
+                            Label:
+                                text: "Lorem ipsum dolor sit amet"
+                            Label:
+                                text: "Lorem ipsum dolor sit amet"
+                            Label:
+                                text: "Lorem ipsum dolor sit amet"
+                            Label:
+                                text: "Lorem ipsum dolor sit amet"
+                            Label:
+                                text: "Lorem ipsum dolor sit amet"
+                            Label:
+                                text: "Lorem ipsum dolor sit amet"
+                            Label:
+                                text: "Lorem ipsum dolor sit amet"
             Button:
                 text: "bouton 7"
 
@@ -113,10 +217,10 @@
             ActionView:
                 use_separator: True
                 ActionPrevious:
-                    title: 'Action Bar'
+                    title: 'Pomidor'
                     with_previous: False
                 ActionGroup:
-                    text: 'File'
+                    text: 'Menu'
                     mode: 'spinner'
                     size_hint_x: None
                     width: 90
@@ -138,6 +242,7 @@
 
 # main layout.
     lists_content: lists_content
+    tasks_content: tasks_content
     GridLayout:
         id: root_window
         spacing: 2
@@ -148,6 +253,8 @@
         #Ramka z przesuwającymi się stronami
         PageLayout:
             id: pages_container
+            
+            #LISTY ZADANIOWE!
             #Ramka strony
             GridLayout:
                 id: lists_main
@@ -155,6 +262,14 @@
                 padding: 0
                 cols: 2
                 rows: 1
+
+                #tlo
+                canvas:
+                    Color:
+                        hsv: 1, .5, .3
+                    Rectangle:
+                        pos: self.pos
+                        size: self.width, self.height
 
                 #Etykieta strony
                 Label:
@@ -235,11 +350,104 @@
                                 text: "Lorem ipsum dolor sit amet"
                             Label:
                                 text: "Lorem ipsum dolor sit amet"
-                        
+
+            #WYBOR/EDYCJA/DODAWANIE ZADAN
+            #Ramka strony
+            GridLayout:
+                id: tasks_main
+                spacing: 0
+                padding: 0
+                cols: 2
+                rows: 1
+
+                #tlo
+                canvas:
+                    Color:
+                        hsv: 1, .5, .3
+                    Rectangle:
+                        pos: self.pos
+                        size: self.width, self.height
 
 
-            Button:
-                text: "bouton 6"
+                #Etykieta strony
+                Label:
+                    id: tasks_label
+                    text: "Wybierz listę"
+                    size_hint_x: None
+                    size: 20, 10
+                    text_size: root.width, None
+                    halign: 'center'
+                    valign: 'top'
+                    canvas.before:
+                        PushMatrix
+                        Rotate:
+                            angle: 90
+                            origin: self.center
+                    canvas.after:
+                        PopMatrix
+
+                #Strona - zawartość
+                BoxLayout:
+                    orientation: "vertical"
+
+                    #Wprowadzanie nazwy nowej listy
+                    BoxLayout:
+                        size_hint: None, None
+                        size: root.width-70, 30
+
+                        TextInput:
+                            multiline: False
+                            id: tasks_new_name
+                            size_hint_x:4
+                            text_size: self.size
+                            valign: 'middle'
+                            hint_text: "Nazwa nowej listy"
+                        Button:
+                            id: tasks_new_accept
+                            size_hint_x:1
+                            text: "Dodaj"
+                    #Lista list
+                    ScrollView
+                        size: root.size
+                        GridLayout:
+                            id: tasks_content
+                            size_hint_y: None
+                            cols: 1
+                            row_default_height: '40dp'
+                            row_force_default: True
+                            spacing: 0, 0
+                            padding: 0, 0
+
+                            Label:
+                                text: "Lorem ipsum dolor sit amet"
+                            Label:
+                                text: "Lorem ipsum dolor sit amet"
+                            Label:
+                                text: "Lorem ipsum dolor sit amet"
+                            Label:
+                                text: "Lorem ipsum dolor sit amet"
+                            Label:
+                                text: "Lorem ipsum dolor sit amet"
+                            Label:
+                                text: "Lorem ipsum dolor sit amet"
+                            Label:
+                                text: "Lorem ipsum dolor sit amet"
+                            Label:
+                                text: "Lorem ipsum dolor sit amet"
+                            Label:
+                                text: "Lorem ipsum dolor sit amet"
+                            Label:
+                                text: "Lorem ipsum dolor sit amet"
+                            Label:
+                                text: "Lorem ipsum dolor sit amet"
+                            Label:
+                                text: "Lorem ipsum dolor sit amet"
+                            Label:
+                                text: "Lorem ipsum dolor sit amet"
+                            Label:
+                                text: "Lorem ipsum dolor sit amet"
+                            Label:
+                                text: "Lorem ipsum dolor sit amet"
             Button:
                 text: "bouton 7"
 
@@ -250,10 +458,10 @@
             ActionView:
                 use_separator: True
                 ActionPrevious:
-                    title: 'Action Bar'
+                    title: 'Pomidor'
                     with_previous: False
                 ActionGroup:
-                    text: 'File'
+                    text: 'Menu'
                     mode: 'spinner'
                     size_hint_x: None
                     width: 90

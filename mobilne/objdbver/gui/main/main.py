@@ -5,10 +5,12 @@ from kivy.app import App
 
 class RootWidget(FloatLayout):
     lists_content=ObjectProperty(None)
+    tasks_content=ObjectProperty(None)
 
     def __init__(self, **kwargs):
         super(RootWidget, self).__init__(**kwargs)
         self.lists_content.bind(minimum_height=self.lists_content.setter('height'))
+        self.tasks_content.bind(minimum_height=self.tasks_content.setter('height'))
     '''This is the class representing your root widget.
        By default it is inherited from BoxLayout,
        you can use any other layout/widget depending on your usage.
