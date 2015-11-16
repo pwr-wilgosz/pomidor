@@ -1,35 +1,69 @@
 <RootWidget>:
 # main layout.
     GridLayout:
+        id: root_window
         spacing: 2
         padding: 0
         cols: 1
         rows: 2
         
-        #zawartosc stron
+        #Ramka z przesuwającymi się stronami
         PageLayout:
+            id: pages_container
+            #Ramka strony
             GridLayout:
+                id: lists_main
                 spacing: 0
                 padding: 0
                 cols: 2
                 rows: 1
-                FloatLayout:
-                    size_hint_x: 1
-                    Label:
-                        pos: 0, 0
-                        #valign: 'top'
-                        
-                        text: 'hello world'
-                        #canvas.before:
-                        #    PushMatrix
-                        #    Rotate:
-                        #        angle: 90
-                        #        origin: self.center
-                        #canvas.after:
-                        #    PopMatrix
-                Button:
-                    size_hint_x: 2
-                    text: "bouton 5"
+
+                #Etykieta strony
+                Label:
+                    id: lists_label
+                    text: "Wybierz listę"
+                    size_hint_x: None
+                    size: 20, 10
+                    text_size: root.width, None
+                    halign: 'center'
+                    valign: 'top'
+                    canvas.before:
+                        PushMatrix
+                        Rotate:
+                            angle: 90
+                            origin: self.center
+                    canvas.after:
+                        PopMatrix
+
+                #Strona - zawartość
+                BoxLayout:
+                    id: lists_content
+                    size: root.size
+                    orientation: "vertical"
+
+                    #Wprowadzanie nazwy nowej listy
+                    BoxLayout:
+                        size_hint_x: 1
+                        size_hint_y: None
+
+                        TextInput:
+                            height: 20.0
+                            multiline: False
+                            keyboard_mode: 'managed'
+                            cursor_blink: False
+                            suggestion_text: ''
+                            selection_text: ''
+                            id: lists_new_name
+                            size_hint_x:4
+                            text_size: root.width, None
+                            hint_text: "Nazwa nowej listy"
+                        Button:
+                            id: lists_new_accept
+                            size_hint_x:1
+                            size: 20, 20
+                            text: "Dodaj"
+
+
             Button:
                 text: "bouton 6"
             Button:
@@ -37,6 +71,7 @@
 
         #pasek menu - dolny 
         ActionBar:
+            id: menu_bar
             pos_hint: {'top':1}
             ActionView:
                 use_separator: True
@@ -65,35 +100,63 @@
 
 # main layout.
     GridLayout:
+        id: root_window
         spacing: 2
         padding: 0
         cols: 1
         rows: 2
         
-        #zawartosc stron
+        #Ramka z przesuwającymi się stronami
         PageLayout:
+            id: pages_container
+            #Ramka strony
             GridLayout:
+                id: lists_main
                 spacing: 0
                 padding: 0
                 cols: 2
                 rows: 1
-                FloatLayout:
-                    size_hint_x: 1
-                    Label:
-                        pos_hint: 0, 0
-                        #valign: 'top'
-                        
-                        text: 'hello world'
-                        #canvas.before:
-                        #    PushMatrix
-                        #    Rotate:
-                        #        angle: 90
-                        #        origin: self.center
-                        #canvas.after:
-                        #    PopMatrix
-                Button:
-                    size_hint_x: 2
-                    text: "bouton 5"
+
+                #Etykieta strony
+                Label:
+                    id: lists_label
+                    text: "Wybierz listę"
+                    size_hint_x: None
+                    size: 20, 10
+                    text_size: root.width, None
+                    halign: 'center'
+                    valign: 'top'
+                    canvas.before:
+                        PushMatrix
+                        Rotate:
+                            angle: 90
+                            origin: self.center
+                    canvas.after:
+                        PopMatrix
+
+                #Strona - zawartość
+                BoxLayout:
+                    id: lists_content
+                    size: root.size
+                    orientation: "vertical"
+
+                    #Wprowadzanie nazwy nowej listy
+                    BoxLayout:
+                        size_hint_x: 1
+                        size_hint_y: None
+
+                        TextInput:
+                            id: lists_new_name
+                            size_hint_x:4
+                            text_size: root.width, None
+                            hint_text: "Nazwa nowej listy"
+                        Button:
+                            id: lists_new_accept
+                            size_hint_x:1
+                            size: 20, 20
+                            text: "Dodaj"
+
+
             Button:
                 text: "bouton 6"
             Button:
@@ -101,6 +164,7 @@
 
         #pasek menu - dolny 
         ActionBar:
+            id: menu_bar
             pos_hint: {'top':1}
             ActionView:
                 use_separator: True
