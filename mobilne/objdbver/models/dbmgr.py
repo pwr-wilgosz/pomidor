@@ -32,20 +32,15 @@ class DBMgr():
 	def InitDB(self):
 		""" Init database if it doesn't exists
 		"""
+		if not os.path.exists(self.DB_FILE):
+			base.Base.metadata.create_all(self.engine)
 
-		base.Base.metadata.create_all(self.engine)
-		self.session.query(ListModel).count()
-		lst = ListModel("name", 1)
-		self.session.add(lst)
-		self.session.commit()
-
-		#   Base.metadata.create_all(self.engine)
 		# # Create a bunch of records if we don't have any
-		# if self.session.query(ListModel).count() == 0:
+		# self.session.query(ListModel).count()
 		# 	print("Creating new list in database")
-		# 	lst = ListModel(name, user_id)
-		# 	self.session.add(lst)
-
+		# lst = ListModel("name", 1)
+		# self.session.add(lst)
+		# self.session.commit()
 
 	def ChangeList(self, list_id, name):
 		""" Perform changes in given list in database
@@ -76,5 +71,5 @@ class DBMgr():
 		"""
 		print("Fetching lists from database")
 		lists = self.session.query(ListModel).\
-			filter_by(identifier=list_id).all()
+			filter_by(user_id="{uid}".format(uid=user_id)).all()
 		return lists

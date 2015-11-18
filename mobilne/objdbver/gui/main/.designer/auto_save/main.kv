@@ -1,7 +1,6 @@
 <RootWidget>:
 # main layout.
     lists_content: lists_content
-    tasks_content: tasks_content
     GridLayout:
         id: root_window
         spacing: 2
@@ -25,7 +24,7 @@
                 #tlo
                 canvas:
                     Color:
-                        hsv: 1, .5, .3
+                        hsv:  .03, .4, .2
                     Rectangle:
                         pos: self.pos
                         size: self.width, self.height
@@ -122,7 +121,7 @@
                 #tlo
                 canvas:
                     Color:
-                        hsv: 1, .5, .3
+                        hsv:  .37, .4, .2
                     Rectangle:
                         pos: self.pos
                         size: self.width, self.height
@@ -131,7 +130,7 @@
                 #Etykieta strony
                 Label:
                     id: tasks_label
-                    text: "Wybierz listę"
+                    text: "Wybierz zadanie"
                     size_hint_x: None
                     size: 20, 10
                     text_size: root.width, None
@@ -149,66 +148,102 @@
                 BoxLayout:
                     orientation: "vertical"
 
-                    #Wprowadzanie nazwy nowej listy
-                    BoxLayout:
-                        size_hint: None, None
-                        size: root.width-70, 30
+                    #Widok zadan
+                    GridLayout:
+                        cols:3
+                        rows:3
+                        
 
-                        TextInput:
-                            multiline: False
-                            id: tasks_new_name
-                            size_hint_x:4
-                            text_size: self.size
-                            valign: 'middle'
-                            hint_text: "Nazwa nowej listy"
-                        Button:
-                            id: tasks_new_accept
-                            size_hint_x:1
-                            text: "Dodaj"
-                    #Lista list
-                    ScrollView
-                        size: root.size
-                        GridLayout:
-                            id: tasks_content
-                            size_hint_y: None
-                            cols: 1
-                            row_default_height: '40dp'
-                            row_force_default: True
-                            spacing: 0, 0
-                            padding: 0, 0
+                        StackLayout:
+                            size_hint: 1,1
+                        StackLayout:
+                            size_hint: 4,1
+                            Label:  
+                                text: 'Ważne'
+                        StackLayout:
+                            size_hint: 4,1
+                            Label:  
+                                text: 'Nie ważne'
+                        StackLayout:
+                            size_hint: 1,4
+                            Label:  
+                                text: 'Pilne'
+                        StackLayout:
+                            id: 'cell-imp-urg'
+                            canvas:
+                                Color:
+                                    hsv: 1, .5, .3
+                                Rectangle:
+                                    size: self.size
+                                    pos: self.pos
+                        StackLayout:
+                            id: 'cell-nimp-urg'
+                            canvas:
+                                Color:
+                                    hsv: 0.7, .5, .3
+                                Rectangle:
+                                    size: self.size
+                                    pos: self.pos
+                        StackLayout:
+                            size_hint: 1,4
+                            Label:  
+                                text: 'Nie pilne'
+                        StackLayout:
+                            id: 'cell-imp-nurg'
+                            canvas:
+                                Color:
+                                    hsv: 0.5, .5, .3
+                                Rectangle:
+                                    size: self.size
+                                    pos: self.pos
+                        StackLayout:
+                            id: 'cell-nimp-nurg'
+                            canvas:
+                                Color:
+                                    hsv: 0.2, .5, .3
+                                Rectangle:
+                                    size: self.size
+                                    pos: self.pos
+            
+            #Czasomierz
+            #Ramka strony
+            GridLayout:
+                id: timer_main
+                spacing: 0
+                padding: 0
+                cols: 2
+                rows: 1
 
-                            Label:
-                                text: "Lorem ipsum dolor sit amet"
-                            Label:
-                                text: "Lorem ipsum dolor sit amet"
-                            Label:
-                                text: "Lorem ipsum dolor sit amet"
-                            Label:
-                                text: "Lorem ipsum dolor sit amet"
-                            Label:
-                                text: "Lorem ipsum dolor sit amet"
-                            Label:
-                                text: "Lorem ipsum dolor sit amet"
-                            Label:
-                                text: "Lorem ipsum dolor sit amet"
-                            Label:
-                                text: "Lorem ipsum dolor sit amet"
-                            Label:
-                                text: "Lorem ipsum dolor sit amet"
-                            Label:
-                                text: "Lorem ipsum dolor sit amet"
-                            Label:
-                                text: "Lorem ipsum dolor sit amet"
-                            Label:
-                                text: "Lorem ipsum dolor sit amet"
-                            Label:
-                                text: "Lorem ipsum dolor sit amet"
-                            Label:
-                                text: "Lorem ipsum dolor sit amet"
-                            Label:
-                                text: "Lorem ipsum dolor sit amet"
-            Button:
-                text: "bouton 7"
+                #tlo
+                canvas:
+                    Color:
+                        hsv:  .7, .4, .2
+                    Rectangle:
+                        pos: self.pos
+                        size: self.width, self.height
+
+
+                #Etykieta strony
+                Label:
+                    id: tasks_label
+                    text: "Kontroluj czas"
+                    size_hint_x: None
+                    size: 20, 10
+                    text_size: root.width, None
+                    halign: 'center'
+                    valign: 'top'
+                    canvas.before:
+                        PushMatrix
+                        Rotate:
+                            angle: 90
+                            origin: self.center
+                    canvas.after:
+                        PopMatrix
+
+                #Strona - zawartość
+                Label:
+                    split_str: ''
+                    text: 'czasomierz'
 
         #pasek menu - dolny 
         ActionBar:
@@ -242,7 +277,6 @@
 
 # main layout.
     lists_content: lists_content
-    tasks_content: tasks_content
     GridLayout:
         id: root_window
         spacing: 2
@@ -266,7 +300,7 @@
                 #tlo
                 canvas:
                     Color:
-                        hsv: 1, .5, .3
+                        hsv:  .03, .4, .2
                     Rectangle:
                         pos: self.pos
                         size: self.width, self.height
@@ -363,7 +397,7 @@
                 #tlo
                 canvas:
                     Color:
-                        hsv: 1, .5, .3
+                        hsv:  .37, .4, .2
                     Rectangle:
                         pos: self.pos
                         size: self.width, self.height
@@ -372,7 +406,7 @@
                 #Etykieta strony
                 Label:
                     id: tasks_label
-                    text: "Wybierz listę"
+                    text: "Wybierz zadanie"
                     size_hint_x: None
                     size: 20, 10
                     text_size: root.width, None
@@ -390,66 +424,101 @@
                 BoxLayout:
                     orientation: "vertical"
 
-                    #Wprowadzanie nazwy nowej listy
-                    BoxLayout:
-                        size_hint: None, None
-                        size: root.width-70, 30
+                    #Widok zadan
+                    GridLayout:
+                        cols:3
+                        rows:3
+                        
 
-                        TextInput:
-                            multiline: False
-                            id: tasks_new_name
-                            size_hint_x:4
-                            text_size: self.size
-                            valign: 'middle'
-                            hint_text: "Nazwa nowej listy"
-                        Button:
-                            id: tasks_new_accept
-                            size_hint_x:1
-                            text: "Dodaj"
-                    #Lista list
-                    ScrollView
-                        size: root.size
-                        GridLayout:
-                            id: tasks_content
-                            size_hint_y: None
-                            cols: 1
-                            row_default_height: '40dp'
-                            row_force_default: True
-                            spacing: 0, 0
-                            padding: 0, 0
+                        StackLayout:
+                            size_hint: 1,1
+                        StackLayout:
+                            size_hint: 4,1
+                            Label:  
+                                text: 'Ważne'
+                        StackLayout:
+                            size_hint: 4,1
+                            Label:  
+                                text: 'Nie ważne'
+                        StackLayout:
+                            size_hint: 1,4
+                            Label:  
+                                text: 'Pilne'
+                        StackLayout:
+                            id: 'cell-imp-urg'
+                            canvas:
+                                Color:
+                                    hsv: 1, .5, .3
+                                Rectangle:
+                                    size: self.size
+                                    pos: self.pos
+                        StackLayout:
+                            id: 'cell-nimp-urg'
+                            canvas:
+                                Color:
+                                    hsv: 0.7, .5, .3
+                                Rectangle:
+                                    size: self.size
+                                    pos: self.pos
+                        StackLayout:
+                            size_hint: 1,4
+                            Label:  
+                                text: 'Nie pilne'
+                        StackLayout:
+                            id: 'cell-imp-nurg'
+                            canvas:
+                                Color:
+                                    hsv: 0.5, .5, .3
+                                Rectangle:
+                                    size: self.size
+                                    pos: self.pos
+                        StackLayout:
+                            id: 'cell-nimp-nurg'
+                            canvas:
+                                Color:
+                                    hsv: 0.2, .5, .3
+                                Rectangle:
+                                    size: self.size
+                                    pos: self.pos
+            
+            #Czasomierz
+            #Ramka strony
+            GridLayout:
+                id: timer_main
+                spacing: 0
+                padding: 0
+                cols: 2
+                rows: 1
 
-                            Label:
-                                text: "Lorem ipsum dolor sit amet"
-                            Label:
-                                text: "Lorem ipsum dolor sit amet"
-                            Label:
-                                text: "Lorem ipsum dolor sit amet"
-                            Label:
-                                text: "Lorem ipsum dolor sit amet"
-                            Label:
-                                text: "Lorem ipsum dolor sit amet"
-                            Label:
-                                text: "Lorem ipsum dolor sit amet"
-                            Label:
-                                text: "Lorem ipsum dolor sit amet"
-                            Label:
-                                text: "Lorem ipsum dolor sit amet"
-                            Label:
-                                text: "Lorem ipsum dolor sit amet"
-                            Label:
-                                text: "Lorem ipsum dolor sit amet"
-                            Label:
-                                text: "Lorem ipsum dolor sit amet"
-                            Label:
-                                text: "Lorem ipsum dolor sit amet"
-                            Label:
-                                text: "Lorem ipsum dolor sit amet"
-                            Label:
-                                text: "Lorem ipsum dolor sit amet"
-                            Label:
-                                text: "Lorem ipsum dolor sit amet"
-            Button:
-                text: "bouton 7"
+                #tlo
+                canvas:
+                    Color:
+                        hsv:  .7, .4, .2
+                    Rectangle:
+                        pos: self.pos
+                        size: self.width, self.height
+
+
+                #Etykieta strony
+                Label:
+                    id: tasks_label
+                    text: "Kontroluj czas"
+                    size_hint_x: None
+                    size: 20, 10
+                    text_size: root.width, None
+                    halign: 'center'
+                    valign: 'top'
+                    canvas.before:
+                        PushMatrix
+                        Rotate:
+                            angle: 90
+                            origin: self.center
+                    canvas.after:
+                        PopMatrix
+
+                #Strona - zawartość
+                Label:
+                    text: 'czasomierz'
 
         #pasek menu - dolny 
         ActionBar:
