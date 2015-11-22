@@ -7,11 +7,11 @@
         padding: 0
         cols: 1
         rows: 2
-        
+
         #Ramka z przesuwającymi się stronami
         PageLayout:
             id: pages_container
-            
+
             #LISTY ZADANIOWE!
             #Ramka strony
             GridLayout:
@@ -24,7 +24,7 @@
                 #tlo
                 canvas:
                     Color:
-                        hsv:  .03, .4, .2
+                        hsv:  .03, .4, .6
                     Rectangle:
                         pos: self.pos
                         size: self.width, self.height
@@ -79,35 +79,8 @@
                             padding: 0, 0
 
                             Label:
-                                text: "Lorem ipsum dolor sit amet"
-                            Label:
-                                text: "Lorem ipsum dolor sit amet"
-                            Label:
-                                text: "Lorem ipsum dolor sit amet"
-                            Label:
-                                text: "Lorem ipsum dolor sit amet"
-                            Label:
-                                text: "Lorem ipsum dolor sit amet"
-                            Label:
-                                text: "Lorem ipsum dolor sit amet"
-                            Label:
-                                text: "Lorem ipsum dolor sit amet"
-                            Label:
-                                text: "Lorem ipsum dolor sit amet"
-                            Label:
-                                text: "Lorem ipsum dolor sit amet"
-                            Label:
-                                text: "Lorem ipsum dolor sit amet"
-                            Label:
-                                text: "Lorem ipsum dolor sit amet"
-                            Label:
-                                text: "Lorem ipsum dolor sit amet"
-                            Label:
-                                text: "Lorem ipsum dolor sit amet"
-                            Label:
-                                text: "Lorem ipsum dolor sit amet"
-                            Label:
-                                text: "Lorem ipsum dolor sit amet"
+                                text: "Tu będzie super-mega zadanie"
+
 
             #WYBOR/EDYCJA/DODAWANIE ZADAN
             #Ramka strony
@@ -121,7 +94,7 @@
                 #tlo
                 canvas:
                     Color:
-                        hsv:  .37, .4, .2
+                        hsv:  .37, .4, .5
                     Rectangle:
                         pos: self.pos
                         size: self.width, self.height
@@ -152,59 +125,106 @@
                     GridLayout:
                         cols:3
                         rows:3
-                        
+
 
                         StackLayout:
                             size_hint: 1,1
                         StackLayout:
                             size_hint: 4,1
-                            Label:  
+                            Label:
                                 text: 'Ważne'
                         StackLayout:
                             size_hint: 4,1
-                            Label:  
+                            Label:
                                 text: 'Nie ważne'
                         StackLayout:
                             size_hint: 1,4
-                            Label:  
+                            Label:
                                 text: 'Pilne'
                         StackLayout:
                             id: 'cell-imp-urg'
+                            spacing: 5
+                            padding: 5
                             canvas:
                                 Color:
-                                    hsv: 1, .5, .3
+                                    hsv: 1, .3, .8
                                 Rectangle:
                                     size: self.size
                                     pos: self.pos
+
+                            #testowa zawartosc
+                            Button:
+                                size_hint: .45, None
+                                size: 0, 22
+                                background_color: 0,1,0,.7
+
+                                BoxLayout:
+                                    pos: self.parent.pos
+                                    size: self.parent.size
+                                    padding: 5, 2, 3, 2
+                                    spacing: 2
+
+                                    Label:
+                                        size_hint: .6, 1
+                                        text_size: self.size[0], 10
+                                        strip: True
+                                        shorten: True
+                                        shorten_from: 'right'
+                                        font_size: 10
+
+                                        max_lines: 1.0
+                                        split_str: '...'
+                                        text: 'zadania duzo duzo'
+                                    Button:
+                                        size_hint: .15, 1
+                                        Image:
+                                            source: '../img/edit.png'
+                                            y: self.parent.y + self.parent.height - 16
+                                            x: self.parent.x + self.parent.width/2 - 8
+                                            size: 16, 16
+                                    Button:
+                                        size_hint: .15, 1
+                                        Image:
+                                            source: '../img/del.png'
+                                            y: self.parent.y + self.parent.height - 16
+                                            x: self.parent.x + self.parent.width/2 - 8
+                                            size: 16, 16
+
                         StackLayout:
                             id: 'cell-nimp-urg'
+                            spacing: 5
+                            padding: 5
                             canvas:
                                 Color:
-                                    hsv: 0.7, .5, .3
+                                    hsv: 0.7, .2, .8
                                 Rectangle:
                                     size: self.size
                                     pos: self.pos
                         StackLayout:
                             size_hint: 1,4
-                            Label:  
+                            Label:
                                 text: 'Nie pilne'
                         StackLayout:
                             id: 'cell-imp-nurg'
+                            spacing: 5
+                            padding: 5
                             canvas:
                                 Color:
-                                    hsv: 0.5, .5, .3
+                                    hsv: 0.5, .3, .8
                                 Rectangle:
                                     size: self.size
                                     pos: self.pos
                         StackLayout:
                             id: 'cell-nimp-nurg'
+                            spacing: 5
+                            padding: 5
                             canvas:
                                 Color:
-                                    hsv: 0.2, .5, .3
+                                    hsv: 0.2, .2, .8
                                 Rectangle:
                                     size: self.size
                                     pos: self.pos
-            
+
             #Czasomierz
             #Ramka strony
             GridLayout:
@@ -217,7 +237,7 @@
                 #tlo
                 canvas:
                     Color:
-                        hsv:  .7, .4, .2
+                        hsv:  .7, .4, .6
                     Rectangle:
                         pos: self.pos
                         size: self.width, self.height
@@ -242,10 +262,9 @@
 
                 #Strona - zawartość
                 Label:
-                    split_str: ''
                     text: 'czasomierz'
 
-        #pasek menu - dolny 
+        #pasek menu - dolny
         ActionBar:
             id: menu_bar
             pos_hint: {'top':1}
@@ -269,10 +288,6 @@
                         text: 'Save As'
                     ActionButton:
                         text: 'Quit'
-
-
-
-
 
 
 # main layout.
@@ -283,11 +298,11 @@
         padding: 0
         cols: 1
         rows: 2
-        
+
         #Ramka z przesuwającymi się stronami
         PageLayout:
             id: pages_container
-            
+
             #LISTY ZADANIOWE!
             #Ramka strony
             GridLayout:
@@ -300,7 +315,7 @@
                 #tlo
                 canvas:
                     Color:
-                        hsv:  .03, .4, .2
+                        hsv:  .03, .4, .6
                     Rectangle:
                         pos: self.pos
                         size: self.width, self.height
@@ -355,35 +370,8 @@
                             padding: 0, 0
 
                             Label:
-                                text: "Lorem ipsum dolor sit amet"
-                            Label:
-                                text: "Lorem ipsum dolor sit amet"
-                            Label:
-                                text: "Lorem ipsum dolor sit amet"
-                            Label:
-                                text: "Lorem ipsum dolor sit amet"
-                            Label:
-                                text: "Lorem ipsum dolor sit amet"
-                            Label:
-                                text: "Lorem ipsum dolor sit amet"
-                            Label:
-                                text: "Lorem ipsum dolor sit amet"
-                            Label:
-                                text: "Lorem ipsum dolor sit amet"
-                            Label:
-                                text: "Lorem ipsum dolor sit amet"
-                            Label:
-                                text: "Lorem ipsum dolor sit amet"
-                            Label:
-                                text: "Lorem ipsum dolor sit amet"
-                            Label:
-                                text: "Lorem ipsum dolor sit amet"
-                            Label:
-                                text: "Lorem ipsum dolor sit amet"
-                            Label:
-                                text: "Lorem ipsum dolor sit amet"
-                            Label:
-                                text: "Lorem ipsum dolor sit amet"
+                                text: "Tu będzie super-mega zadanie"
+
 
             #WYBOR/EDYCJA/DODAWANIE ZADAN
             #Ramka strony
@@ -397,7 +385,7 @@
                 #tlo
                 canvas:
                     Color:
-                        hsv:  .37, .4, .2
+                        hsv:  .37, .4, .5
                     Rectangle:
                         pos: self.pos
                         size: self.width, self.height
@@ -428,59 +416,106 @@
                     GridLayout:
                         cols:3
                         rows:3
-                        
+
 
                         StackLayout:
                             size_hint: 1,1
                         StackLayout:
                             size_hint: 4,1
-                            Label:  
+                            Label:
                                 text: 'Ważne'
                         StackLayout:
                             size_hint: 4,1
-                            Label:  
+                            Label:
                                 text: 'Nie ważne'
                         StackLayout:
                             size_hint: 1,4
-                            Label:  
+                            Label:
                                 text: 'Pilne'
                         StackLayout:
                             id: 'cell-imp-urg'
+                            spacing: 5
+                            padding: 5
                             canvas:
                                 Color:
-                                    hsv: 1, .5, .3
+                                    hsv: 1, .3, .8
                                 Rectangle:
                                     size: self.size
                                     pos: self.pos
+
+                            #testowa zawartosc
+                            Button:
+                                size_hint: .45, None
+                                size: 0, 22
+                                background_color: 0,1,0,.7
+
+                                BoxLayout:
+                                    pos: self.parent.pos
+                                    size: self.parent.size
+                                    padding: 5, 2, 3, 2
+                                    spacing: 2
+
+                                    Label:
+                                        size_hint: .6, 1
+                                        text_size: self.size[0], 10
+                                        strip: True
+                                        shorten: True
+                                        shorten_from: 'right'
+                                        font_size: 10
+
+                                        max_lines: 1.0
+                                        split_str: '...'
+                                        text: 'zadania duzo duzo'
+                                    Button:
+                                        size_hint: .15, 1
+                                        Image:
+                                            source: '../img/edit.png'
+                                            y: self.parent.y + self.parent.height - 16
+                                            x: self.parent.x + self.parent.width/2 - 8
+                                            size: 16, 16
+                                    Button:
+                                        size_hint: .15, 1
+                                        Image:
+                                            source: '../img/del.png'
+                                            y: self.parent.y + self.parent.height - 16
+                                            x: self.parent.x + self.parent.width/2 - 8
+                                            size: 16, 16
+
                         StackLayout:
                             id: 'cell-nimp-urg'
+                            spacing: 5
+                            padding: 5
                             canvas:
                                 Color:
-                                    hsv: 0.7, .5, .3
+                                    hsv: 0.7, .2, .8
                                 Rectangle:
                                     size: self.size
                                     pos: self.pos
                         StackLayout:
                             size_hint: 1,4
-                            Label:  
+                            Label:
                                 text: 'Nie pilne'
                         StackLayout:
                             id: 'cell-imp-nurg'
+                            spacing: 5
+                            padding: 5
                             canvas:
                                 Color:
-                                    hsv: 0.5, .5, .3
+                                    hsv: 0.5, .3, .8
                                 Rectangle:
                                     size: self.size
                                     pos: self.pos
                         StackLayout:
                             id: 'cell-nimp-nurg'
+                            spacing: 5
+                            padding: 5
                             canvas:
                                 Color:
-                                    hsv: 0.2, .5, .3
+                                    hsv: 0.2, .2, .8
                                 Rectangle:
                                     size: self.size
                                     pos: self.pos
-            
+
             #Czasomierz
             #Ramka strony
             GridLayout:
@@ -493,7 +528,7 @@
                 #tlo
                 canvas:
                     Color:
-                        hsv:  .7, .4, .2
+                        hsv:  .7, .4, .6
                     Rectangle:
                         pos: self.pos
                         size: self.width, self.height
@@ -520,7 +555,7 @@
                 Label:
                     text: 'czasomierz'
 
-        #pasek menu - dolny 
+        #pasek menu - dolny
         ActionBar:
             id: menu_bar
             pos_hint: {'top':1}
@@ -544,7 +579,3 @@
                         text: 'Save As'
                     ActionButton:
                         text: 'Quit'
-
-
-
-

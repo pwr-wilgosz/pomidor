@@ -12,6 +12,7 @@ class ListModel(Base):
 	user_id = Column(Integer)
 	created_at = Column(DateTime, default=datetime.now(), nullable=False)
 	updated_at = Column(DateTime, default=datetime.now(), nullable=False)
+	is_chosen = Column(Integer, default=0, nullable=False)
 
 	def __init__(self, in_name, in_uid, \
 		in_id=None, in_crat=datetime.now(), in_upat=datetime.now()):

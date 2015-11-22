@@ -1,0 +1,57 @@
+<time>
+    1448233318.96
+</time>
+<files>
+    <file>
+        /home/rafszt/Programowanie/Python/Layouty/pomidor/main/buildozer.spec
+    </file>
+    <file>
+        /home/rafszt/Programowanie/Python/Layouty/pomidor/main/main.py
+    </file>
+</files>
+<classes>
+    <class>
+         <name>
+             RootWidget
+         </name>
+         <file>
+             /home/rafszt/Programowanie/Python/Layouty/pomidor/main/main.py
+         </file>
+
+    </class>
+    <class>
+         <name>
+             EditTaskPopup
+         </name>
+         <file>
+             /home/rafszt/Programowanie/Python/Layouty/pomidor/main/main.py
+         </file>
+
+    </class>
+    <class>
+         <name>
+             DeleteTaskPopup
+         </name>
+         <file>
+             /home/rafszt/Programowanie/Python/Layouty/pomidor/main/main.py
+         </file>
+
+    </class>
+    <class>
+         <name>
+             ListEntry
+         </name>
+         <file>
+             /home/rafszt/Programowanie/Python/Layouty/pomidor/main/main.py
+         </file>
+
+    </class>
+</classes>
+<app>
+    <class>
+         MainApp
+    </class>
+    <file>
+         /home/rafszt/Programowanie/Python/Layouty/pomidor/main/main.py
+    </file>
+</app>
