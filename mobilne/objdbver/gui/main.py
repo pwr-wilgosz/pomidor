@@ -3,8 +3,11 @@ from kivy.uix.floatlayout import FloatLayout
 from kivy.app import App
 from kivy.uix.popup import Popup
 from kivy.uix.button import Button
+from kivy.lang import Builder
 #from kivy.core.window import Window
 #Window.size = (480, 255)
+
+Builder.load_file('main.kv')
 
 class RootWidget(FloatLayout):
     lists_content=ObjectProperty(None)
@@ -27,7 +30,7 @@ class DeleteTaskPopup(Popup):
 class ListEntry(Button):
     pass
 
-class MainApp(App):
+class PomidorApp(App):
     '''This is the main class of your app.
        Define any app wide entities here.
        This class can be accessed anywhere inside the kivy app as,
@@ -42,7 +45,7 @@ class MainApp(App):
        Name of the .kv file that is auto-loaded is derived from the name
        of this class::
 
-         MainApp = main.kv
+         PomidorApp = main.kv
          MainClass = mainclass.kv
 
        The App part is auto removed and the whole name is lowercased.
@@ -64,4 +67,4 @@ class MainApp(App):
         p.open()
 
 if '__main__' == __name__:
-    MainApp().run()
+    PomidorApp().run()

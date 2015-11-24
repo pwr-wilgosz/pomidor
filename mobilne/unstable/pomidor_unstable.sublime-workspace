@@ -43,55 +43,19 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "models/model.py",
-			"settings":
-			{
-				"buffer_size": 2850,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "models/dbmanip.py",
-			"settings":
-			{
-				"buffer_size": 2098,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "models/list.py",
-			"settings":
-			{
-				"buffer_size": 414,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "manager.py",
-			"settings":
-			{
-				"buffer_size": 1702,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "models/dbcreat.py",
-			"settings":
-			{
-				"buffer_size": 820,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 0.0,
+		"height": 392.0,
 		"selected_items":
 		[
+			[
+				"pack ",
+				"Preferences: Browse Packages"
+			]
 		],
-		"width": 0.0
+		"width": 392.0
 	},
 	"console":
 	{
@@ -108,12 +72,20 @@
 	},
 	"file_history":
 	[
+		"/home/rafszt/Programowanie/Python/Layouty/eksperyment3/main.kv",
+		"/home/rafszt/Programowanie/pomidor/mobilne/unstable/models/dbcreat.py",
+		"/home/rafszt/Programowanie/pomidor/mobilne/unstable/manager.py",
+		"/home/rafszt/Programowanie/pomidor/mobilne/unstable/models/list.py",
+		"/home/rafszt/Programowanie/pomidor/mobilne/unstable/models/dbmanip.py",
+		"/home/rafszt/Programowanie/Python/Layouty/eksperyment3/main.py",
+		"/home/rafszt/Programowanie/SSO/lab4/five_phils.c",
+		"/home/rafszt/Programowanie/Python/Layouty/pomidor/main/main.kv",
+		"/home/rafszt/Programowanie/pomidor/mobilne/unstable/models/model.py",
 		"/home/rafszt/Programowanie/pomidor/mobilne/unstable/pomidor_unstable.sublime-project",
 		"/home/rafszt/Programowanie/pomidor/mobilne/unstable/pomodoro.kv",
 		"/home/rafszt/Programowanie/pomidor/mobilne/unstable/main.py",
 		"/home/rafszt/Programowanie/pomidor/mobilne/unstable/req_try.py",
 		"/home/rafszt/Programowanie/pomidor/mobilne/unstable/hello.py",
-		"/home/rafszt/Programowanie/pomidor/mobilne/unstable/models/dbcreat.py",
 		"/home/rafszt/Programowanie/pomidor/mobilne/unstable/splash.kv",
 		"/home/rafszt/regulamin/REGULAMIN.txt",
 		"/tmp/confirm_request_email_again.tpl",
@@ -123,7 +95,6 @@
 		"/tmp/mc-rafszt/fishIFH57Xconfirm_request_email_first.tpl",
 		"/home/rafszt/Programowanie/SSO/lab4/Makefile",
 		"/home/rafszt/Programowanie/SSO/lab4/phil.c",
-		"/home/rafszt/Programowanie/SSO/lab4/five_phils.c",
 		"/home/rafszt/Programowanie/SSO/lab4/simple_exec.c",
 		"/home/rafszt/Programowanie/SSO/lab2/simple_exec.c",
 		"/home/rafszt/Programowanie/SSO/lab2/Makefile",
@@ -188,156 +159,13 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "models/model.py",
-					"settings":
-					{
-						"buffer_size": 2850,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1569,
-								1569
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 390.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		},
 		{
-			"selected": 2,
 			"sheets":
 			[
-				{
-					"buffer": 1,
-					"file": "models/dbmanip.py",
-					"settings":
-					{
-						"buffer_size": 2098,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1889,
-								1889
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 234.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "models/list.py",
-					"settings":
-					{
-						"buffer_size": 414,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								175,
-								175
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "manager.py",
-					"settings":
-					{
-						"buffer_size": 1702,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1509,
-								1509
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 234.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 0,
-			"sheets":
-			[
-				{
-					"buffer": 4,
-					"file": "models/dbcreat.py",
-					"settings":
-					{
-						"buffer_size": 820,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								820,
-								820
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -364,19 +192,12 @@
 				0,
 				2,
 				1
-			],
-			[
-				2,
-				0,
-				3,
-				1
 			]
 		],
 		"cols":
 		[
 			0.0,
-			0.432643678161,
-			0.584288793103,
+			0.5,
 			1.0
 		],
 		"rows":
@@ -405,11 +226,15 @@
 	},
 	"select_project":
 	{
-		"height": 0.0,
+		"height": 500.0,
 		"selected_items":
 		[
+			[
+				"",
+				"/home/rafszt/Programowanie/pomidor/mobilne/ormver/pomidor_orm.sublime-project"
+			]
 		],
-		"width": 0.0
+		"width": 380.0
 	},
 	"show_minimap": true,
 	"show_open_files": false,

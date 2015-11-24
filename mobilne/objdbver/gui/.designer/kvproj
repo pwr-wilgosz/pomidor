@@ -1,12 +1,24 @@
 <time>
-    1448233318.96
+    1448234840.67
 </time>
 <files>
     <file>
-        /home/rafszt/Programowanie/Python/Layouty/pomidor/main/buildozer.spec
+        /home/rafszt/Programowanie/pomidor/mobilne/objdbver/gui/buildozer.spec
     </file>
     <file>
-        /home/rafszt/Programowanie/Python/Layouty/pomidor/main/main.py
+        /home/rafszt/Programowanie/pomidor/mobilne/objdbver/gui/main.py
+    </file>
+    <file>
+        /home/rafszt/Programowanie/pomidor/mobilne/objdbver/gui/__init__.py
+    </file>
+    <file>
+        /home/rafszt/Programowanie/pomidor/mobilne/objdbver/gui/tests/popup_ex.py
+    </file>
+    <file>
+        /home/rafszt/Programowanie/pomidor/mobilne/objdbver/gui/tests/screen_mgr_ex.py
+    </file>
+    <file>
+        /home/rafszt/Programowanie/pomidor/mobilne/objdbver/gui/tests/__init__.py
     </file>
 </files>
 <classes>
@@ -15,7 +27,7 @@
              RootWidget
          </name>
          <file>
-             /home/rafszt/Programowanie/Python/Layouty/pomidor/main/main.py
+             /home/rafszt/Programowanie/pomidor/mobilne/objdbver/gui/main.py
          </file>
 
     </class>
@@ -24,7 +36,7 @@
              EditTaskPopup
          </name>
          <file>
-             /home/rafszt/Programowanie/Python/Layouty/pomidor/main/main.py
+             /home/rafszt/Programowanie/pomidor/mobilne/objdbver/gui/main.py
          </file>
 
     </class>
@@ -33,7 +45,7 @@
              DeleteTaskPopup
          </name>
          <file>
-             /home/rafszt/Programowanie/Python/Layouty/pomidor/main/main.py
+             /home/rafszt/Programowanie/pomidor/mobilne/objdbver/gui/main.py
          </file>
 
     </class>
@@ -42,7 +54,7 @@
              ListEntry
          </name>
          <file>
-             /home/rafszt/Programowanie/Python/Layouty/pomidor/main/main.py
+             /home/rafszt/Programowanie/pomidor/mobilne/objdbver/gui/main.py
          </file>
 
     </class>
@@ -52,6 +64,6 @@
          MainApp
     </class>
     <file>
-         /home/rafszt/Programowanie/Python/Layouty/pomidor/main/main.py
+         /home/rafszt/Programowanie/pomidor/mobilne/objdbver/gui/main.py
     </file>
 </app>

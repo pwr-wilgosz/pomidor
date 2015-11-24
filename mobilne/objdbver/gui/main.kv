@@ -16,15 +16,15 @@
             #Ramka strony
             GridLayout:
                 id: lists_main
-                spacing: 0
-                padding: 0
+                spacing: 3
+                padding: 2
                 cols: 2
                 rows: 1
 
                 #tlo
                 canvas:
                     Color:
-                        hsv:  .03, .4, .6
+                        hsv:  .0, .0, .13
                     Rectangle:
                         pos: self.pos
                         size: self.width, self.height
@@ -39,6 +39,11 @@
                     halign: 'center'
                     valign: 'top'
                     canvas.before:
+                        Color:
+                            hsv:  .07, .96, .98
+                        Rectangle:
+                            pos: self.pos
+                            size: self.width, self.height
                         PushMatrix
                         Rotate:
                             angle: 90
@@ -52,8 +57,8 @@
 
                     #Wprowadzanie nazwy nowej listy
                     BoxLayout:
-                        size_hint: None, None
-                        size: root.width-70, 30
+                        size_hint: 1, None
+                        size: 0, 30
 
                         TextInput:
                             multiline: False
@@ -84,15 +89,15 @@
             #Ramka strony
             GridLayout:
                 id: tasks_main
-                spacing: 0
-                padding: 0
+                spacing: 3
+                padding: 2
                 cols: 2
                 rows: 1
 
                 #tlo
                 canvas:
                     Color:
-                        hsv:  .37, .4, .5
+                        hsv:  .0, .0, .13
                     Rectangle:
                         pos: self.pos
                         size: self.width, self.height
@@ -108,6 +113,11 @@
                     halign: 'center'
                     valign: 'top'
                     canvas.before:
+                        Color:
+                            hsv:  .4, .96, .98
+                        Rectangle:
+                            pos: self.pos
+                            size: self.width, self.height
                         PushMatrix
                         Rotate:
                             angle: 90
@@ -139,6 +149,13 @@
                             size_hint: 1,4
                             Label:
                                 text: 'Pilne'
+                                canvas.before:
+                                    PushMatrix
+                                    Rotate:
+                                        angle: 90
+                                        origin: self.center
+                                canvas.after:
+                                    PopMatrix
                         StackLayout:
                             id: 'cell-imp-urg'
                             spacing: 5
@@ -202,6 +219,13 @@
                             size_hint: 1,4
                             Label:
                                 text: 'Nie pilne'
+                                canvas.before:
+                                    PushMatrix
+                                    Rotate:
+                                        angle: 90
+                                        origin: self.center
+                                canvas.after:
+                                    PopMatrix
                         StackLayout:
                             id: 'cell-imp-nurg'
                             spacing: 5
@@ -227,15 +251,15 @@
             #Ramka strony
             GridLayout:
                 id: timer_main
-                spacing: 0
-                padding: 0
+                spacing: 3
+                padding: 2
                 cols: 2
                 rows: 1
 
                 #tlo
                 canvas:
                     Color:
-                        hsv:  .7, .4, .6
+                        hsv:  .0, .0, .13
                     Rectangle:
                         pos: self.pos
                         size: self.width, self.height
@@ -251,6 +275,11 @@
                     halign: 'center'
                     valign: 'top'
                     canvas.before:
+                        Color:
+                            hsv:  .73, .96, .98
+                        Rectangle:
+                            pos: self.pos
+                            size: self.width, self.height
                         PushMatrix
                         Rotate:
                             angle: 90

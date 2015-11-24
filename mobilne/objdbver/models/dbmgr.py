@@ -19,7 +19,7 @@ class DBMgr():
 	def __init__(self):
 		# ORM base
 		self.Connect()
-		self.InitDB()		
+		self.InitDB()
 
 	def Connect(self):
 		""" Connect to database
@@ -73,3 +73,13 @@ class DBMgr():
 		lists = self.session.query(ListModel).\
 			filter_by(user_id="{uid}".format(uid=user_id)).all()
 		return lists
+
+	def AddList(self, name, user_id):
+		""" Adds list to database
+			name - name of a new list
+		returns: None
+		"""
+		print("Creating list")
+		newList = ListModel(name, user_id)
+		print("Sending list to database")
+		self.session.add(newList)

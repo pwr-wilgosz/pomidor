@@ -33,7 +33,7 @@ base.Base.metadata.create_all(engine)
 
 # Create a bunch of records if we dozn't have any
 if session.query(MyRecord).count() == 0:
-  for i in range(10):
+  for i in range(4):
     record = MyRecord('key%d' % i, 'value%d' % i)
     session.add(record)
 
@@ -53,6 +53,10 @@ class MyApp(App):
       widget = MyRecordWidget(r)
       layout.add_widget(widget)
     return layout
+
+def addSomeRec(key, value):
+  record = MyRecord(key, value)
+  session.add(record)
 
 if __name__ == '__main__':
   MyApp().run()
