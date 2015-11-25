@@ -31,6 +31,16 @@ class ApplicationController < ActionController::Base
       sign_in(:user, user)
     end
   end
+
+  def sync
+    List.sync(current_user.id, params[:lists]) if Array.wrap(params[:lists]).any?
+    flash[:notice] = "Synchronization succeeded"
+    respond_to do |format|
+      format.html { redirect_to root_url }
+      format.json { render json: current_user.reload.lists }
+    end
+  end
+
 private
 
   def api_request?
