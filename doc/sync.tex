@@ -1,0 +1,79 @@
+Aby zsynchronizować bazy, należy wykonać zapytanie:
+
+\begin{lstlisting}
+
+    GET http://tomato-cal.herokuapp.com/sync
+\end{lstlisting}
+
+Wymagane argumenty:
+
+\begin{itemize}
+  \item access\_token - token identyfikujący użytkownika
+  \item snapshot - obraz bazy danych na urządzeniu: kolekcja wszystkich list i zadań.
+\end{itemize}
+
+Przykład:
+
+\begin{lstlisting}
+curl -H 'Content-Type: application/json' -H 'Accept: application/json' -X POST http://tomato-cal.herokuapp.com/sync?access_token=42fF2zhLai3 -d '
+  {
+    lists: [
+      {
+        identifier: "rpi_4LK3kll2nza",
+        name: "Test list",
+        updated_at: "2013-05-30T13:47:41Z",
+        tasks: [
+          {
+            "name" => "Test task",
+            "priority"=> 1,
+            "updated_at"=>"2015-11-22T15:47:22.768Z",
+            "identifier" => 'rpi_0v9Kds2ngi',
+            "x"=> 104,
+            "y"=> 45,
+            "duration" => 3
+          }
+        ]
+      }
+    ]
+  }'
+
+\end{lstlisting}
+
+Statusy:
+
+\begin{itemize}
+  \item 200 - ok
+  \item 403 - not authorized
+\end{itemize}
+
+Odpowiedzi:
+
+Poprawna (200) - zwracana jest zsynchronizowana tablica list wraz z tablicami zadań danej listy
+
+\begin{lstlisting}
+  {
+    lists: [
+      {
+        id: 1,
+        identifier: "rpi_4LK3kll2nza",
+        name: "Test list",
+        created_at: "2013-05-30T13:47:41Z",
+        updated_at: "2013-05-30T13:47:41Z",
+        tasks: [
+          {
+            "id" => 1,
+            "name" => "Test task",
+            "priority"=> 1,
+            "created_at"=>"2015-11-22T15:47:22.701Z",
+            "updated_at"=>"2015-11-22T15:47:22.768Z",
+            "identifier" => task.identifier,
+            "x"=> 104,
+            "y"=> 45,
+            "duration" => 3,
+            "list_id" => 1
+          }
+        ]
+      }
+    ]
+  }
+\end{lstlisting}
