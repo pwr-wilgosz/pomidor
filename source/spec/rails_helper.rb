@@ -27,4 +27,5 @@ RSpec.configure do |config|
 
   config.include Requests::Json
 
+  config.include Devise::TestHelpers, type: :controller
 end

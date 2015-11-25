@@ -1,0 +1,16 @@
+= render "devise/shared/links"
+h3.title Zarejestruj
+
+
+.default-form
+  = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    = f.error_notification
+
+    .form-group
+      = f.input :email, required: true, autofocus: true, input_html: { class: 'form-control' }
+      = f.input :password, required: true, input_html: { class: 'form-control' }, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length)
+      = f.input :password_confirmation, required: true, input_html: { class: 'form-control' }
+
+    .form-actions
+      = f.button :submit, class: 'btn btn-primary', value: 'Zarejestruj'
+

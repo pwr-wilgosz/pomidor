@@ -1,0 +1,11 @@
+.row
+  .col-lg-12.breadcrumbs
+    .pull-left
+      = link_to "Wróć", @list, class: 'btn btn-default'
+      = link_to 'Dodaj zadanie', new_list_task_path(@list), class: 'btn btn-success'
+    .pull-right
+      - if @task.new_record?
+        = link_to 'Anuluj', lists_path, class: 'btn btn-danger'
+      - else
+        = link_to "Edytuj", edit_list_task_path(@list, @task), class: 'btn btn-info'
+        = link_to 'Usuń', list_task_path(@list, @task), class: 'btn btn-danger', data: {confirm: 'Na pewno usunąć to zadanie?'}, method: :delete

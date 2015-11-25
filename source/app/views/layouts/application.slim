@@ -2,6 +2,8 @@ doctype html
 html
   head
     title Pomidor - Mange your tasks in new way
+    / <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet"
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
@@ -10,11 +12,19 @@ html
     .container
       .row
         .col-lg-12
-          = flash[:notice]
-          = flash[:alert]
+          - if msg = flash[:notice]
+            .alert.alert-success.alert-dismissible role="alert"
+              button.close type="button" data-dismiss="alert" aria-label="Close"
+                span aria-hidden="true" &times;
+              = msg
+          - elsif msg = flash[:alert]
+            .alert.alert-danger.alert-dismissible role="alert"
+              button.close type="button" data-dismiss="alert" aria-label="Close"
+                span aria-hidden="true" &times;
+              = msg
       .row
         .col-lg-12
           = yield
 
-      footer
-        p &copy; Sebastian Wilgosz
+      footer.center
+        p &copy; Sebastian Wilgosz & Rafał Sztandera

@@ -1,0 +1,62 @@
+.row
+  .col-sm-1
+  .col-sm-11
+    .row
+      .col-lg-6
+        h3.center Pilne
+      .col-lg-6
+        h3.center Niepilne
+.row
+  .col-sm-1
+    .row.axis-description
+      .col-lg-12
+        .matrix-quarter
+          h3.vertical-text Ważne
+    .row.axis-description
+      .col-lg-12
+        .matrix-quarter
+          h3.vertical-text Nieważne
+
+  .col-sm-11
+    .col-lg-12.matrix-wrapper
+      .row
+        #quarter-1.col-lg-6.matrix-quarter
+          - @q1_tasks.each do |task|
+            .task-wrapper style="top:#{task.y}px;left:#{task.x}px;"
+                span class="label label-#{Task.random_label}"
+                  = task.name
+                  = link_to edit_list_task_path(@list, task) do
+                    i.icon.icon-pencil
+                  = link_to list_task_path(@list, task), data: { confirm: "Na pewno chcesz usunąć to zadanie?"}, method: :delete do
+                    i.icon.icon-trash
+
+        #quarter-2.col-lg-6.matrix-quarter
+          - @q2_tasks.each do |task|
+            .task-wrapper style="top:#{task.y}px;left:#{task.x}px;"
+                span class="label label-#{Task.random_label}"
+                  = task.name
+                  = link_to edit_list_task_path(@list, task) do
+                    i.icon.icon-pencil
+                  = link_to list_task_path(@list, task), data: { confirm: "Na pewno chcesz usunąć to zadanie?"}, method: :delete do
+                    i.icon.icon-trash
+
+      .row
+        #quarter-3.col-lg-6.matrix-quarter
+          - @q3_tasks.each do |task|
+            .task-wrapper style="top:#{task.y}px;left:#{task.x}px;"
+                span class="label label-#{Task.random_label}"
+                  = task.name
+                  = link_to edit_list_task_path(@list, task) do
+                    i.icon.icon-pencil
+                  = link_to list_task_path(@list, task), data: { confirm: "Na pewno chcesz usunąć to zadanie?"}, method: :delete do
+                    i.icon.icon-trash
+
+        #quarter-4.col-lg-6.matrix-quarter
+          - @q4_tasks.each do |task|
+            .task-wrapper style="top:#{task.y}px;left:#{task.x}px;"
+                span class="label label-#{Task.random_label}"
+                  = task.name
+                  = link_to edit_list_task_path(@list, task) do
+                    i.icon.icon-pencil
+                  = link_to list_task_path(@list, task), data: { confirm: "Na pewno chcesz usunąć to zadanie?"}, method: :delete do
+                    i.icon.icon-trash

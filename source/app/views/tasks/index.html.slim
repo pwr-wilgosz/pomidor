@@ -1,27 +1,7 @@
-h1 Listing tasks
+= render 'lists/list_links'
 
-table
-  thead
-    tr
-      th Name
-      th List
-      th Duration
-      th Priority
-      th
-      th
-      th
+.row
+  .col-lg-12
+    h3 = @list.name
 
-  tbody
-    - @tasks.each do |task|
-      tr
-        td = task.name
-        td = task.list
-        td = task.duration
-        td = task.priority
-        td = link_to 'Show', task
-        td = link_to 'Edit', edit_task_path(task)
-        td = link_to 'Destroy', task, data: {:confirm => 'Are you sure?'}, :method => :delete
-
-br
-
-= link_to 'New Task', new_task_path
+= render 'lists/matrix'

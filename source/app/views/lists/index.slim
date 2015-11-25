@@ -1,3 +1,14 @@
-- @lists.each do |list|
-  li
-    = link_to list.name, list
+.list-group
+  - @lists.each do |list|
+    = link_to list, class: 'list-group-item'
+      span.badge
+        = list.tasks.count
+      = list.name
+
+
+= link_to "Dodaj listę zadań", new_list_path, class: 'btn btn-primary'
+
+
+nav.pagination-wrapper
+  ul.pagination
+    = paginate @lists, window: 2

@@ -1,6 +1,7 @@
-= link_to "Back", lists_path
-h3 = @list.name
+= render 'list_links'
 
-ul
-  - @list.tasks.each do |task|
-    li = link_to task.name, task
+.row
+  .col-lg-12
+    h3 = @list.name
+
+= render 'matrix'

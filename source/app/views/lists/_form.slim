@@ -1,0 +1,10 @@
+.default-form
+  = simple_form_for(@list) do |f|
+    = f.error_notification
+
+    .form-group
+      label Nazwa
+      = f.input :name, label: false, input_html: { class: 'form-control' }
+
+    .form-actions
+      = f.button :submit, class: 'btn btn-primary', value: 'Dodaj listę'

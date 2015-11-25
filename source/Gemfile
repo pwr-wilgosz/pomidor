@@ -32,7 +32,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'turbolinks'
 gem 'simple_form'
 gem 'slim-rails'
-
+gem 'kaminari'
 
 group :production do
   gem 'pg'

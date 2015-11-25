@@ -10,24 +10,25 @@
 
     #main-nav.collapse.navbar-collapse
       ul.nav.navbar-nav
-        li.active
-          = link_to "Moje listy zadań", lists_path
+        - if current_user
+          li.active
+            = link_to "Moje listy zadań", lists_path
 
-        li.dropdown
-          a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"
-            | Więcej
-            span.caret
-          ul.dropdown-menu
-            li = link_to "Dodaj listę", new_list_path
-            li
-              a href="#" Another action
+          li.dropdown
+            a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"
+              | Więcej
+              span.caret
+            ul.dropdown-menu
+              li = link_to "Dodaj listę", new_list_path
+              / li
+              /   a href="#" Another action
 
-            li.divider role="separator"
-            li
-              a href="#" Separated link
-            li.divider role="separator"
-            li
-              a href="#" One more separated link
+              / li.divider role="separator"
+              / li
+              /   a href="#" Separated link
+              / li.divider role="separator"
+              / li
+              /   a href="#" One more separated link
 
       ul.nav.navbar-nav.navbar-right
         li
