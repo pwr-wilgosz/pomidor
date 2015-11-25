@@ -1,0 +1,90 @@
+Poniżej znajduje się lista akceptowanych przez serwer zapytań od aplikacji, oraz lista zwracanych obiektów w formacie JSON.
+
+Serwer nie powinien zwracać nieprzechwytywanych wyjątków, lecz obiekt JSON z odpowiednim polem statusu oraz odpowiednim opisem błędu:
+
+\subsection{ Forbidden}
+
+Ten błąd zwracany jest w przypadku próby wykonania nieautoryzowanej akcji, np. próby utworzenia listy/zadania bez wcześniejszego zalogowania.
+
+\textbf{Format:}
+
+\begin{lstlisting}
+  {
+    "message": "You are not authorized to access this resource.",
+    "status": 403
+  }
+\end{lstlisting}
+
+\subsection{ Not found}
+
+Próba odwołania do zasobu nieistniejącego na serwerze.
+
+\textbf{Format:}
+
+\begin{lstlisting}
+  {
+    "message": "Resource is not found.",
+    "status": 404
+  }
+\end{lstlisting}
+
+\subsection{ Unprocessable entity (422)}
+
+Nieprawidłowy format zapytania, na przykład gdy w parametrach do zadania podamy argumenty bez nazwy obiektu:
+
+\begin{lstlisting}
+  {
+    "name": "Test 1"
+  }
+\end{lstlisting}
+
+zamiast:
+
+\begin{lstlisting}
+  {
+    "task": {
+      "name": "Test 1"
+    }
+  }
+\end{lstlisting}
+
+\textbf{Format:}
+
+\begin{lstlisting}
+  {
+    "message": "Unprocessable entity.",
+    "status": 422
+  }
+\end{lstlisting}
+
+\subsection{ Invalid (unauthorized) (401)}
+
+Autoryzacja jest możliwa, ale się nie udała (przy logowaniu, jeśli podamy nieprawidłowe dane)
+
+\textbf{Format:}
+
+\begin{lstlisting}
+  {
+    "message": "Incorrect email or password",
+    "access_token" : null
+    "status": 401
+  }
+\end{lstlisting}
+
+\subsection{Invalid (406)}
+
+Występuje, gdy nie są spełnione wymogi walidacji, np
+
+\begin{lstlisting}
+  {
+    "message": "List cannot be saved - please, review the errors below.",
+    "list": {
+      "errors": {
+        "title": [
+          "can't be blank",
+          "has already been taken, but 'List 2 is available'
+        ]
+      }
+    }
+  }
+\end{lstlisting}

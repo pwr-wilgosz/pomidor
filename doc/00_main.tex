@@ -1,0 +1,76 @@
+\documentclass[eng,printmode]{02_class}
+\input{ 01_packages }  %this is mainifest file containing all required packages
+
+\title{System do zarządzania zadaniami.}
+\author{Sebastian Wilgosz (nr indeksu: 195963), Rafal Sztandera (nr indeksu: XXXXXX) }
+\supervisor{dr. mgr inż. Marek Woda}
+
+
+\newcommand{\R}{I\!\!R} %symbol liczb rzeczywistych, dział‚a tylko w
+                        %trybie matematycznym
+\newtheorem{theorem}{Twierdzenie}[section]
+\field{Informatyka (INF)}
+\specialisation{Inżynieria Internetowa (INT)}
+
+
+\begin{document}
+  \maketitle
+  \tableofcontents
+
+  \chapter{Wstęp}
+  \label{chapter:introduction}
+    \section{Cel projektu}
+    \label{section:target}
+    \input{target}
+
+    \section{Opis problemu}
+    \label{section:problem}
+    \input{problem}
+
+    \section{Opis rozwiązania i wykorzystanych technologii}
+    \label{section:solution}
+    \input{solution}
+
+
+  \chapter{Implementacja}
+  \label{chapter:implementation}
+  \input{implementation}
+
+    \section{Implementacja aplikacji serwerowej}
+    \label{section:server}
+    \input{server}
+
+    \section{Implementacja aplikacji rpi}
+    \label{section:rpi}
+    \input{rpi}
+
+
+  \chapter{Dostarczone API}
+  \label{chapter:api}
+  \input{api}
+    \section{Obsługa błędów}
+    \label{section:api-errors}
+    \input{api-errors}
+
+    \section{Sesje logowania}
+    \label{section:sessions}
+    \input{sessions}
+
+    \section{Zarządzanie listami}
+    \label{section:lists}
+    \input{lists}
+
+    \section{Zarządzanie zadaniami}
+    \label{section:tasks}
+    \input{tasks}
+
+  \chapter{Wnioski}
+  \label{chapter:conclusions}
+  \input{conclusions}
+
+  \begin{thebibliography}{plain}
+    \label{bibliography}
+    \input{zz_bibliography}
+  \end{thebibliography}
+
+\end{document}

@@ -1,0 +1,40 @@
+\subsection{Logowanie}
+
+Aby zalogować uzytkownika i otrzymać odpowiadający mu klucz dostępu, należy wysłać zapytanie do serwera, przekazując w parametrach email oraz hasło. W przypadku pomyślnego logowania, serwer zwróci kod dostępu, \textit{access\_token}, który od tej pory będzie autoryzował użytkownika.
+
+Każde zapytanie do serwera bez podanego w parametrze klucza dostępu zwróci obiekt JSON odpowiadający błędowi (403) \ref{section:api-errors}
+
+
+\begin{lstlisting}
+  POST http://tomato-cal.herokuapp.com/login.json
+\end{lstlisting}
+
+Wymagane parametry:
+\begin{itemize}
+  \item email
+  \item password
+\end{itemize}
+
+Statusy odpowiedzi:
+\begin{itemize}
+  \item 200 - ok
+  \item 403 - unauthorised
+\end{itemize}
+
+\subsubsection{Odpowiedzi:}
+
+Poprawna (200)
+\begin{lstlisting}
+  {
+      "status": 200,
+      "access_token" : "abcdefgh"
+  }
+\end{lstlisting}
+
+Nieprawidłowe dane logowania (403)
+\begin{lstlisting}
+  {
+    "message" : "Invalid email or password",
+    "status": 403
+  }
+\end{lstlisting}
