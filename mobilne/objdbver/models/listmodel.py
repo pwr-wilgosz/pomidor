@@ -1,4 +1,5 @@
 from sqlalchemy import Column, Integer, String, DateTime
+from sqlalchemy.orm import relationship
 from datetime import datetime
 import random
 from base import Base
@@ -12,7 +13,8 @@ class ListModel(Base):
 	user_id = Column(Integer)
 	created_at = Column(DateTime, default=datetime.now(), nullable=False)
 	updated_at = Column(DateTime, default=datetime.now(), nullable=False)
-	is_chosen = Column(Integer, default=0, nullable=False)
+
+	tasks = relationship("TaskModel", cascade = "all,delete")
 
 	def __init__(self, in_name, in_uid, \
 		in_id=None, in_crat=datetime.now(), in_upat=datetime.now()):

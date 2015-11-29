@@ -1,3 +1,4 @@
+from kivy.app import App
 from kivy.properties import StringProperty
 from popups import InfoPopup, ServReqPopup, EditTaskPopup, DeleteTaskPopup
 from kivy.uix.button import Button
@@ -23,3 +24,7 @@ class ListEntry(Button):
     def show_confirm_list_del(self):
         p = DeleteTaskPopup(self.list_id)
         p.open()
+
+    def PickListAction(self):
+        app = App.get_running_app()
+        app.ListTaskPickAction(self.list_id)

@@ -9,6 +9,8 @@ class Manager:
 		self.gui = None
 		self.currUserId = None
 		self.servAuth = None
+		self.pickedListId = None
+		self.pickedTaskId = None
 
 
 	def SetupSystem(self):
@@ -85,6 +87,7 @@ class Manager:
 		return 'OK'
 
 
+	#LISTS
 	def GetListsToView(self):
 		""" Performing necessary actions to load lists view
 			FIRES: after gui call
@@ -128,6 +131,79 @@ class Manager:
 		returns: bool - confirmatin. True - ok
 		"""
 		return self.db.DelList(list_id)
+
+	def SetList(self, list_id):
+		""" Store user list pick (list_id)
+			list_id - id of picked list
+		returns: None
+		"""
+		self.pickedListId = list_id
+		self.pickedTaskId = None
+
+	def SetTask(self, task_id):
+		""" Store user task pick from given list (tasj_id)
+			task_id - id of picked task
+		returns: None
+		"""
+		self.pickedTaskId = task_id
+
+	def PickedListTaskNamePair(self):
+		""" Returns picked by user list and task ids pairs
+		returns: two items: list_id and task_id
+		"""
+		listName = None
+		if self.pickedListId != None:
+			pickedList = self.db.GetSingleList(self.pickedListId)
+			listName = pickedList.name
+
+		return listName, self.pickedTaskId
+
+	#TASKS
+	def GetTasksToView(self):
+		""" Performing necessary actions to load tasks view
+			FIRES: after gui call
+		returns: list of id - name - prior dictionaries
+		"""
+		tasksToDisp = []
+		if self.pickedListId == None:
+			return tasksToDisp
+
+		tasksFromDB = self.db.GetListTasks(self.pickedListId)
+		for r in tasksFromDB:
+			tasksToDisp.append(r.IdNamePriorDict())
+		return tasksToDisp
+
+
+	def SubmitTask(self, name):
+		""" Sends data to database, wait for confirmation (new list obj)
+			name - name of a new list
+		returns:  bool - confirmatin. True - ok
+		"""
+		return self.db.AddTask(name, self.currUserId)
+		# Old way
+		# print("Adding new list to database...")
+		# result = self.model.CreateTask(name, self.currUserId)
+		# if len(result) > 0:
+		# 	print("Adding complete!")
+		# else:
+		# 	print("I cannot add your new list.")
+
+	def ModifyTask(self, list_id, new_name):
+		""" Changes lists data in database, wait for confirmation (new list obj)
+			list_id - identifier of given list
+			new_name - name of a new list
+		returns:  bool - confirmatin. True - ok
+		"""
+		print("Changing list in database...")
+		return self.db.ModifyTask(list_id, new_name)
+
+	def DeleteTask(self, list_id):
+		""" Removes data from database, wait for confirmation (new list obj)
+			list_id - list identifier
+		returns: bool - confirmatin. True - ok
+		"""
+		return self.db.DelTask(list_id)
+
 
 
 if __name__ == "__main__":

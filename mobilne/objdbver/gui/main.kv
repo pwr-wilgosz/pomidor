@@ -4,6 +4,11 @@
 <RootWidget>:
 # main layout.
     lists_content: lists_content
+    task_nimp_urg: task_nimp_urg
+    task_imp_urg: task_imp_urg
+    task_imp_nurg: task_imp_nurg
+    task_nimp_nurg: task_nimp_nurg
+
     GridLayout:
         id: root_window
         spacing: 2
@@ -29,7 +34,8 @@
 
                 #Etykieta strony
                 Label:
-                    text: "Wybierz listę"
+                    markup: True
+                    text: root.list_label
                     size_hint_x: None
                     size: 20, 10
                     text_size: root.width, None
@@ -103,8 +109,8 @@
 
                 #Etykieta strony
                 Label:
-                    id: tasks_label
-                    text: "Wybierz zadanie"
+                    markup: True
+                    text: root.task_label
                     size_hint_x: None
                     size: 20, 10
                     text_size: root.width, None
@@ -155,7 +161,7 @@
                                 canvas.after:
                                     PopMatrix
                         StackLayout:
-                            id: 'cell-imp-urg'
+                            id: task_imp_urg
                             spacing: 5
                             padding: 5
                             canvas:
@@ -165,46 +171,10 @@
                                     size: self.size
                                     pos: self.pos
 
-                            #testowa zawartosc
-                            Button:
-                                size_hint: .45, None
-                                size: 0, 22
-                                background_color: 0,1,0,.7
 
-                                BoxLayout:
-                                    pos: self.parent.pos
-                                    size: self.parent.size
-                                    padding: 5, 2, 3, 2
-                                    spacing: 2
-
-                                    Label:
-                                        size_hint: .6, 1
-                                        text_size: self.size[0], 10
-                                        strip: True
-                                        shorten: True
-                                        shorten_from: 'right'
-                                        font_size: 10
-
-                                        max_lines: 1.0
-                                        split_str: '...'
-                                        text: 'zadania duzo duzo'
-                                    Button:
-                                        size_hint: .15, 1
-                                        Image:
-                                            source: './img/edit.png'
-                                            y: self.parent.y + self.parent.height - 16
-                                            x: self.parent.x + self.parent.width/2 - 8
-                                            size: 16, 16
-                                    Button:
-                                        size_hint: .15, 1
-                                        Image:
-                                            source: './img/del.png'
-                                            y: self.parent.y + self.parent.height - 16
-                                            x: self.parent.x + self.parent.width/2 - 8
-                                            size: 16, 16
 
                         StackLayout:
-                            id: 'cell-nimp-urg'
+                            id: task_nimp_urg
                             spacing: 5
                             padding: 5
                             canvas:
@@ -225,7 +195,7 @@
                                 canvas.after:
                                     PopMatrix
                         StackLayout:
-                            id: 'cell-imp-nurg'
+                            id: task_imp_nurg
                             spacing: 5
                             padding: 5
                             canvas:
@@ -235,7 +205,7 @@
                                     size: self.size
                                     pos: self.pos
                         StackLayout:
-                            id: 'cell-nimp-nurg'
+                            id: task_nimp_nurg
                             spacing: 5
                             padding: 5
                             canvas:
@@ -474,9 +444,8 @@
                 on_press: root.dismiss()
 
 <ListEntry>:
-    # size_hint: .45, None
-    # size: 0, 22'
     background_color: 0,0,0,.6
+    on_press: self.PickListAction()
 
     BoxLayout:
         pos: self.parent.pos
@@ -509,5 +478,43 @@
             Image:
                 source: './img/del.png'
                 y: self.parent.y + self.parent.height/2 - 8
+                x: self.parent.x + self.parent.width/2 - 8
+                size: 16, 16
+
+<TaskEntry>:
+    size_hint: .45, None
+    size: 0, 22
+    background_color: 0,1,0,.7
+
+    BoxLayout:
+        pos: self.parent.pos
+        size: self.parent.size
+        padding: 5, 2, 3, 2
+        spacing: 2
+
+        Label:
+            size_hint: .6, 1
+            text_size: self.size[0], 10
+            background_color: 0,0,0,0
+            strip: True
+            shorten: True
+            shorten_from: 'right'
+            font_size: 10
+
+            max_lines: 1.0
+            split_str: '...'
+            text: 'zadania duzo duzo'
+        Button:
+            size_hint: .15, 1
+            Image:
+                source: './img/edit.png'
+                y: self.parent.y + self.parent.height - 16
+                x: self.parent.x + self.parent.width/2 - 8
+                size: 16, 16
+        Button:
+            size_hint: .15, 1
+            Image:
+                source: './img/del.png'
+                y: self.parent.y + self.parent.height - 16
                 x: self.parent.x + self.parent.width/2 - 8
                 size: 16, 16

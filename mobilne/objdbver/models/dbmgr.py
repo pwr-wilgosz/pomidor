@@ -4,11 +4,13 @@ from sqlalchemy import Column, Integer, String, DateTime
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import relationship, backref
+from sqlalchemy.exc import SQLAlchemyError
 import os.path
 #ORM types
 from datetime import datetime
 import base
 from listmodel import ListModel
+from taskmodel import TaskModel
 
 class DBMgr():
 	# Database connection
@@ -53,6 +55,7 @@ class DBMgr():
 			return False
 		return True
 
+	#LISTS PART
 	def ModifyList(self, list_id, name):
 		""" Perform changes in given list in database
 			list_id - id of the list
@@ -101,4 +104,58 @@ class DBMgr():
 		newList = ListModel(name, user_id)
 		print("Sending list to database")
 		self.session.add(newList)
+		return self.Comm()
+
+	#TASKS PART
+	def ModifyTask(self, task_id, name = None, dur = None, prior = None):
+		""" Perform changes in given task in database
+			task_id - id of the task
+			name - name of the task (optional)
+			dur - duration of the task (optional)
+			prior - priority of the task (optional)
+		returns: bool confirmation (True - ok, False - fail)
+		"""
+		print("Modyfing task data in database")
+		lst = self.GetSingleTask(task_id)
+		lst.Modify(name, prior, dur)
+		return self.Comm()
+
+	def GetSingleTask(self, task_id):
+		""" Gets exact task (based on given task_id)
+		returns: single task
+		"""
+		print("Fetching single task from database")
+		singleTask = self.session.query(TaskModel).\
+			filter_by(identifier=task_id).first()
+		return singleTask
+
+	def DelTask(self, task_id):
+		""" Dellete exact task (based on given task_id)
+		returns: bool confirm; True - ok
+		"""
+		taskToDel = self.GetSingleTask(task_id)
+		self.session.delete(taskToDel)
+		return self.Comm()
+
+	def GetListTasks(self, in_list_id):
+		""" Gets every task that are assigned to given list
+			in_list_id - id of given list
+		returns: list of Task objects
+		"""
+		print("Fetching tasks from database")
+		tasks = self.session.query(TaskModel).\
+			filter_by(list_id="{lid}".format(lid=in_list_id)).all()
+		return tasks
+
+	def AddTask(self, name, list_id, prior):
+		""" Adds task to database
+			name - name of a new task
+			list_id - list that new task will belong to
+			prior - priority of new task
+		returns: None
+		"""
+		print("Creating task")
+		newTask = TaskModel(name, list_id, prior)
+		print("Sending task to database")
+		self.session.add(newTask)
 		return self.Comm()
