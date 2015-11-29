@@ -20,5 +20,5 @@ def RawToGuiTasks(listOfTasksDict):
     guiTasks = []
     for taskDict in listOfTasksDict:
         guiTasks.append(TaskEntry(taskDict['id'], taskDict['name'], \
-                        taskDict['prior']))
+                        taskDict['prior'], taskDict['duration']))
     return guiTasks

@@ -1,6 +1,6 @@
 from kivy.app import App
 from kivy.properties import StringProperty
-from popups import InfoPopup, ServReqPopup, EditTaskPopup, DeleteTaskPopup
+from popups import InfoPopup, ServReqPopup, EditListPopup, DeleteListPopup
 from kivy.uix.button import Button
 
 class ListEntry(Button):
@@ -14,7 +14,7 @@ class ListEntry(Button):
         super(ListEntry, self).__init__(**kwargs)
 
     def show_edit_list(self):
-        p = EditTaskPopup(self)
+        p = EditListPopup(self)
         p.open()
 
     def show_popup(self):
@@ -22,7 +22,7 @@ class ListEntry(Button):
         p.open()
 
     def show_confirm_list_del(self):
-        p = DeleteTaskPopup(self.list_id)
+        p = DeleteListPopup(self.list_id)
         p.open()
 
     def PickListAction(self):

@@ -6,7 +6,8 @@ from kivy.clock import Clock
 from kivy.app import App
 from kivy.lang import Builder
 
-from popups import InfoPopup, ServReqPopup, EditTaskPopup, DeleteTaskPopup, AddListPopup
+from popups import InfoPopup, ServReqPopup, \
+                AddListPopup, CreateTaskPopup
 from listentry import ListEntry
 
 from decorator import RawToGuiLists, RawToGuiTasks
@@ -190,6 +191,10 @@ class RootWidget(Screen):
         p = AddListPopup(inputField.text)
         p.open()
 
+    def add_new_task(self, priority):
+        if self.dataManip.pickedListId != None:
+            p = CreateTaskPopup(priority)
+            p.open()
 
 if '__main__' == __name__:
     PomidorApp().run()

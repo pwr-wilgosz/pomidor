@@ -147,15 +147,15 @@ class DBMgr():
 			filter_by(list_id="{lid}".format(lid=in_list_id)).all()
 		return tasks
 
-	def AddTask(self, name, list_id, prior):
+	def AddTask(self, name, list_id, prior, duration):
 		""" Adds task to database
 			name - name of a new task
 			list_id - list that new task will belong to
 			prior - priority of new task
-		returns: None
+		returns: bool confirm; True - ok
 		"""
 		print("Creating task")
-		newTask = TaskModel(name, list_id, prior)
+		newTask = TaskModel(name, list_id, prior, duration)
 		print("Sending task to database")
 		self.session.add(newTask)
 		return self.Comm()

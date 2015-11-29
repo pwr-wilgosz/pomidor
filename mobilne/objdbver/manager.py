@@ -152,11 +152,15 @@ class Manager:
 		returns: two items: list_id and task_id
 		"""
 		listName = None
+		taskName = None
 		if self.pickedListId != None:
 			pickedList = self.db.GetSingleList(self.pickedListId)
 			listName = pickedList.name
+		if self.pickedTaskId != None:
+			pickedTask = self.db.GetSingleTask(self.pickedTaskId)
+			taskName = pickedTask.name
 
-		return listName, self.pickedTaskId
+		return listName, taskName
 
 	#TASKS
 	def GetTasksToView(self):
@@ -173,38 +177,30 @@ class Manager:
 			tasksToDisp.append(r.IdNamePriorDict())
 		return tasksToDisp
 
+	def SubmitTask(self, name, prior, duration):
+		""" Sends data to database, wait for confirmation
+			name - name of a new task
+			prior - priority
+			duration - time that task is predicted to finish (in pomodoro cycles)
+		returns:  bool - confirmation. True - ok
+		"""
+		return self.db.AddTask(name, self.pickedListId, prior, duration)
 
-	def SubmitTask(self, name):
-		""" Sends data to database, wait for confirmation (new list obj)
-			name - name of a new list
+	def ModifyTask(self, task_id, name = None, dur = None, prior = None):
+		""" Changes task data in database, wait for confirmation
+			task_id - identifier of given task
+			name - name of a new task
 		returns:  bool - confirmatin. True - ok
 		"""
-		return self.db.AddTask(name, self.currUserId)
-		# Old way
-		# print("Adding new list to database...")
-		# result = self.model.CreateTask(name, self.currUserId)
-		# if len(result) > 0:
-		# 	print("Adding complete!")
-		# else:
-		# 	print("I cannot add your new list.")
+		print("Changing task in database...")
+		return self.db.ModifyTask(task_id, name, dur, prior)
 
-	def ModifyTask(self, list_id, new_name):
-		""" Changes lists data in database, wait for confirmation (new list obj)
-			list_id - identifier of given list
-			new_name - name of a new list
-		returns:  bool - confirmatin. True - ok
-		"""
-		print("Changing list in database...")
-		return self.db.ModifyTask(list_id, new_name)
-
-	def DeleteTask(self, list_id):
-		""" Removes data from database, wait for confirmation (new list obj)
-			list_id - list identifier
+	def DeleteTask(self, task_id):
+		""" Removes data from database, wait for confirmation
+			task_id - task identifier
 		returns: bool - confirmatin. True - ok
 		"""
-		return self.db.DelTask(list_id)
-
-
+		return self.db.DelTask(task_id)
 
 if __name__ == "__main__":
 #app start

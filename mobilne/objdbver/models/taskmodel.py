@@ -68,10 +68,11 @@ class TaskModel(Base):
 
 	def IdNamePriorDict(self):
 		""" Function that returns model as dict of values for display purpose
-		returns: dict of id, name, prior properties
+		returns: dict of id, name, prior, duration properties
 		"""
 		d = dict()
 		d['id'] = self.identifier
 		d['name'] = self.name
 		d['prior'] = self.priority
+		d['duration'] = self.duration
 		return d

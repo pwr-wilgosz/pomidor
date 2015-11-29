@@ -160,29 +160,43 @@
                                         origin: self.center
                                 canvas.after:
                                     PopMatrix
-                        StackLayout:
-                            id: task_imp_urg
-                            spacing: 5
-                            padding: 5
-                            canvas:
-                                Color:
-                                    hsv: 1, .3, .8
-                                Rectangle:
-                                    size: self.size
-                                    pos: self.pos
+                        FloatLayout:
+                            pos: self.parent.pos
+                            Button:
+                                pos: self.parent.pos
+                                background_color: 0,0,0,0
+                                on_press: root.add_new_task(1)
 
+                            StackLayout:
+                                id: task_imp_urg
+                                pos: self.parent.pos
+                                spacing: 5
+                                padding: 5
+                                canvas:
+                                    Color:
+                                        hsv: 1, .3, .8
+                                    Rectangle:
+                                        size: self.size
+                                        pos: self.pos
 
+                        FloatLayout:
+                            pos: self.parent.pos
+                            Button:
+                                pos: self.parent.pos
+                                background_color: 0,0,0,0
+                                on_press: root.add_new_task(2)
+                            StackLayout:
+                                id: task_nimp_urg
+                                pos: self.parent.pos
+                                spacing: 5
+                                padding: 5
+                                canvas:
+                                    Color:
+                                        hsv: 0.7, .2, .8
+                                    Rectangle:
+                                        size: self.size
+                                        pos: self.pos
 
-                        StackLayout:
-                            id: task_nimp_urg
-                            spacing: 5
-                            padding: 5
-                            canvas:
-                                Color:
-                                    hsv: 0.7, .2, .8
-                                Rectangle:
-                                    size: self.size
-                                    pos: self.pos
                         StackLayout:
                             size_hint: 1,4
                             Label:
@@ -194,26 +208,42 @@
                                         origin: self.center
                                 canvas.after:
                                     PopMatrix
-                        StackLayout:
-                            id: task_imp_nurg
-                            spacing: 5
-                            padding: 5
-                            canvas:
-                                Color:
-                                    hsv: 0.5, .3, .8
-                                Rectangle:
-                                    size: self.size
-                                    pos: self.pos
-                        StackLayout:
-                            id: task_nimp_nurg
-                            spacing: 5
-                            padding: 5
-                            canvas:
-                                Color:
-                                    hsv: 0.2, .2, .8
-                                Rectangle:
-                                    size: self.size
-                                    pos: self.pos
+
+                        FloatLayout:
+                            pos: self.parent.pos
+                            Button:
+                                pos: self.parent.pos
+                                background_color: 0,0,0,0
+                                on_press: root.add_new_task(3)
+                            StackLayout:
+                                id: task_imp_nurg
+                                pos: self.parent.pos
+                                spacing: 5
+                                padding: 5
+                                canvas:
+                                    Color:
+                                        hsv: 0.5, .3, .8
+                                    Rectangle:
+                                        size: self.size
+                                        pos: self.pos
+
+                        FloatLayout:
+                            pos: self.parent.pos
+                            Button:
+                                pos: self.parent.pos
+                                background_color: 0,0,0,0
+                                on_press: root.add_new_task(4)
+                            StackLayout:
+                                id: task_nimp_nurg
+                                pos: self.parent.pos
+                                spacing: 5
+                                padding: 5
+                                canvas:
+                                    Color:
+                                        hsv: 0.2, .2, .8
+                                    Rectangle:
+                                        size: self.size
+                                        pos: self.pos
 
             #Czasomierz
             #Ramka strony
@@ -381,7 +411,7 @@
                 text: 'Popraw dane'
                 on_press: root.dismiss()
 
-<EditTaskPopup>:
+<EditListPopup>:
     size_hint: .5, .3
     auto_dismiss: False
     title: 'Edycja listy'
@@ -412,7 +442,7 @@
                 text: 'Anuluj'
                 on_press: root.dismiss()
 
-<DeleteTaskPopup>:
+<DeleteListPopup>:
     size_hint: .5, .3
     auto_dismiss: False
     title: 'Usuwanie listy'
@@ -428,6 +458,154 @@
             text_size: self.size
             valign: 'middle'
             text: "Czy na pewno chcesz usunąć listę?"
+
+        BoxLayout:
+            size_hint_y: None
+            size: 0, 40
+            spacing: 5
+
+            Button:
+                id: lists_del_accept
+                text: "Usuń"
+                on_press: root.PerformAction()
+                on_release: root.CloseAndReload()
+            Button:
+                text: 'Anuluj'
+                on_press: root.dismiss()
+
+<PriorityDropDown>:
+    Button:
+        text: 'Ważne - pilne'
+        size_hint_y: None
+        height: 20
+        on_release: root.MySelect(1, self.text)
+    Button:
+        text: 'Nie ważne - pilne'
+        size_hint_y: None
+        height: 20
+        on_release: root.MySelect(2, self.text)
+    Button:
+        text: 'Ważne - nie pilne'
+        size_hint_y: None
+        height: 20
+        on_release: root.MySelect(3, self.text)
+    Button:
+        text: 'Nie ważne - nie pilne'
+        size_hint_y: None
+        height: 20
+        on_release: root.MySelect(4, self.text)
+
+
+<CreateTaskPopup>:
+    size_hint: .5, .5
+    auto_dismiss: False
+    # title: 'Tworzenie zadania'
+
+    #Wprowadzanie nazwy nowej listy
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 5
+
+        TextInput:
+            multiline: False
+            height: '30dp'
+            id: new_task_name
+            text_size: self.size
+            valign: 'middle'
+            hint_text: "Nazwa zadania"
+
+        Label:
+            text: root.cycleLabel
+            text_size: self.size
+
+        Slider:
+            id: durSlider
+            value: 3
+            min: 1
+            max: 20
+            on_touch_up: root.UpdateLabel(self.value)
+
+        BoxLayout:
+            size_hint_y: None
+            size: 0, 40
+            spacing: 5
+
+            Button:
+                id: lists_ed_accept
+                text: "Zapisz"
+                on_press: root.PerformAction(new_task_name.text, durSlider.value)
+                on_release: root.CloseAndReload()
+            Button:
+                text: 'Anuluj'
+                on_press: root.dismiss()
+
+<EditTaskPopup>:
+    size_hint: .5, .5
+    auto_dismiss: False
+    dropButton: dropButton
+    durSlider: durSlider
+
+    #Wprowadzanie nazwy nowej listy
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 5
+
+        TextInput:
+            multiline: False
+            height: '30dp'
+            id: new_task_name
+            text_size: self.size
+            valign: 'middle'
+            hint_text: "Nazwa zadania"
+            text: root.task_obj.name
+
+        Label:
+            text: root.cycleLabel
+            text_size: self.size
+
+        Slider:
+            id: durSlider
+            value: 3
+            min: 1
+            max: 20
+            on_touch_up: root.UpdateLabel(self.value)
+
+        Button:
+            id: dropButton
+            text: 'Zmiana priorytetu'
+            on_release: root.dropdown.open(self)
+
+        BoxLayout:
+            size_hint_y: None
+            size: 0, 40
+            spacing: 5
+
+            Button:
+                id: lists_ed_accept
+                text: "Zmień"
+                on_press: root.PerformAction(new_task_name.text)
+                on_release: root.CloseAndReload(new_task_name.text)
+            Button:
+                text: 'Anuluj'
+                on_press: root.dismiss()
+
+
+<DeleteTaskPopup>:
+    size_hint: .5, .3
+    auto_dismiss: False
+    title: 'Usuwanie listy'
+
+    #Wprowadzanie nazwy nowej listy
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 5
+
+        Label:
+            multiline: False
+            id: lists_ed_name
+            text_size: self.size
+            valign: 'middle'
+            text: "Czy na pewno chcesz usunąć zadanie?"
 
         BoxLayout:
             size_hint_y: None
@@ -484,7 +662,8 @@
 <TaskEntry>:
     size_hint: .45, None
     size: 0, 22
-    background_color: 0,1,0,.7
+    background_color: 0,0,0,.6
+    on_press: self.PickTaskAction()
 
     BoxLayout:
         pos: self.parent.pos
@@ -503,9 +682,10 @@
 
             max_lines: 1.0
             split_str: '...'
-            text: 'zadania duzo duzo'
+            text: root.name
         Button:
             size_hint: .15, 1
+            on_press: root.show_edit_task()
             Image:
                 source: './img/edit.png'
                 y: self.parent.y + self.parent.height - 16
@@ -513,6 +693,7 @@
                 size: 16, 16
         Button:
             size_hint: .15, 1
+            on_press: root.show_confirm_task_del()
             Image:
                 source: './img/del.png'
                 y: self.parent.y + self.parent.height - 16
