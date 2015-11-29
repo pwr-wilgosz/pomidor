@@ -1,3 +1,6 @@
+#:import SwapTransition kivy.uix.screenmanager.SwapTransition
+
+
 <RootWidget>:
 # main layout.
     lists_content: lists_content
@@ -10,18 +13,13 @@
 
         #Ramka z przesuwającymi się stronami
         PageLayout:
-            id: pages_container
-
             #LISTY ZADANIOWE!
             #Ramka strony
             GridLayout:
-                id: lists_main
                 spacing: 3
                 padding: 2
                 cols: 2
                 rows: 1
-
-                #tlo
                 canvas:
                     Color:
                         hsv:  .0, .0, .13
@@ -31,13 +29,13 @@
 
                 #Etykieta strony
                 Label:
-                    id: lists_label
                     text: "Wybierz listę"
                     size_hint_x: None
                     size: 20, 10
                     text_size: root.width, None
                     halign: 'center'
                     valign: 'top'
+                    background_color: 0,0,0,0
                     canvas.before:
                         Color:
                             hsv:  .07, .96, .98
@@ -68,7 +66,7 @@
                             valign: 'middle'
                             hint_text: "Nazwa nowej listy"
                         Button:
-                            id: lists_new_accept
+                            on_release: root.add_new_list(lists_new_name)
                             size_hint_x:1
                             text: "Dodaj"
                     #Lista list
@@ -193,14 +191,14 @@
                                     Button:
                                         size_hint: .15, 1
                                         Image:
-                                            source: '../img/edit.png'
+                                            source: './img/edit.png'
                                             y: self.parent.y + self.parent.height - 16
                                             x: self.parent.x + self.parent.width/2 - 8
                                             size: 16, 16
                                     Button:
                                         size_hint: .15, 1
                                         Image:
-                                            source: '../img/del.png'
+                                            source: './img/del.png'
                                             y: self.parent.y + self.parent.height - 16
                                             x: self.parent.x + self.parent.width/2 - 8
                                             size: 16, 16
@@ -315,6 +313,103 @@
                         text: 'Save As'
                     ActionButton:
                         text: 'Quit'
+                        on_press: app.get_running_app().stop()
+
+
+#Login Screen
+<LoginScr>:
+    canvas:
+        Color:
+            hsv: .5, .5, .3
+        Rectangle:
+            size: self.size
+
+    BoxLayout:
+        orientation: 'vertical'
+
+        Label:
+            font_size: 42
+            text: 'Login'
+        TextInput:
+            id: typedLogin
+            hint_text: 'Login'
+        TextInput:
+            id: typedPass
+            hint_text: 'Haslo'
+
+    Button:
+        text: 'Zaloguj'
+        size_hint: None, None
+        pos_hint: {'right': 1}
+        size: 150, 50
+        on_release: root.LoginAction(typedLogin.text, typedPass.text)
+
+    Button:
+        text: 'Wyjdź'
+        size_hint: None, None
+        size: 150, 50
+        on_release: app.get_running_app().stop()
+
+
+# POPUPS BEGIN
+<InfoPopup>:
+    size_hint: .5, .3
+    auto_dismiss: False
+    title: 'Info'
+
+
+    #Wprowadzanie nazwy nowej listy
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 5
+
+        Label:
+            multiline: False
+            text_size: self.size
+            valign: 'middle'
+            text: root.pop_descr
+
+        BoxLayout:
+            size_hint_y: None
+            size: 0, 40
+            spacing: 5
+
+            Button:
+                text: 'OK'
+                on_press: root.AcceptAction()
+
+<AddListPopup@InfoPopup>:
+    title: 'Dodano liste!'
+
+<ServReqPopup>:
+    size_hint: .5, .3
+    auto_dismiss: False
+    title: 'Wymagane polaczenie z serwerem'
+
+    #Wprowadzanie nazwy nowej listy
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 5
+
+        Label:
+            multiline: True
+            text_size: self.size
+            valign: 'middle'
+            text: root.pop_descr
+
+        BoxLayout:
+            size_hint_y: None
+            size: 0, 40
+            spacing: 5
+
+            Button:
+                id: lists_ed_accept
+                text: "Polacz"
+                on_press: root.dismiss()
+                on_release: app.RunServSync(root.login, root.password)
+            Button:
+                text: 'Popraw dane'
+                on_press: root.dismiss()
 
 <EditTaskPopup>:
     size_hint: .5, .3
@@ -329,18 +424,20 @@
         TextInput:
             multiline: False
             id: lists_ed_name
-            size_hint_y: None
-            size: 0, 40
             text_size: self.size
             valign: 'middle'
             hint_text: "Nowa nazwa listy"
 
         BoxLayout:
+            size_hint_y: None
+            size: 0, 40
             spacing: 5
 
             Button:
                 id: lists_ed_accept
                 text: "Zmień"
+                on_press: root.PerformAction(lists_ed_name.text)
+                on_release: root.CloseAndReload(lists_ed_name.text)
             Button:
                 text: 'Anuluj'
                 on_press: root.dismiss()
@@ -358,26 +455,28 @@
         Label:
             multiline: False
             id: lists_ed_name
-            size_hint_y: None
-            size: 0, 40
             text_size: self.size
             valign: 'middle'
             text: "Czy na pewno chcesz usunąć listę?"
 
         BoxLayout:
+            size_hint_y: None
+            size: 0, 40
             spacing: 5
 
             Button:
                 id: lists_del_accept
                 text: "Usuń"
+                on_press: root.PerformAction()
+                on_release: root.CloseAndReload()
             Button:
                 text: 'Anuluj'
                 on_press: root.dismiss()
 
 <ListEntry>:
     # size_hint: .45, None
-    # size: 0, 22
-    background_color: 0,0,0,.7
+    # size: 0, 22'
+    background_color: 0,0,0,.6
 
     BoxLayout:
         pos: self.parent.pos
@@ -395,20 +494,20 @@
 
             max_lines: 1.0
             split_str: '...'
-            text: 'zadania duzo duzo'
+            text: root.name
         Button:
             size_hint: .15, 1
-            on_press: app.show_edit_list()
+            on_press: root.show_edit_list()
             Image:
-                source: '../img/edit.png'
+                source: './img/edit.png'
                 y: self.parent.y + self.parent.height/2 - 8
                 x: self.parent.x + self.parent.width/2 - 8
                 size: 16, 16
         Button:
             size_hint: .15, 1
-            on_press: app.show_confirm_list_del()
+            on_press: root.show_confirm_list_del()
             Image:
-                source: '../img/del.png'
+                source: './img/del.png'
                 y: self.parent.y + self.parent.height/2 - 8
                 x: self.parent.x + self.parent.width/2 - 8
                 size: 16, 16

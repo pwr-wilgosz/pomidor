@@ -29,6 +29,7 @@ class DBMgr():
 		session_factory = sessionmaker(bind=self.engine)
 		self.session = session_factory()
 
+
 	def InitDB(self):
 		""" Init database if it doesn't exists
 		"""
@@ -42,18 +43,27 @@ class DBMgr():
 		# self.session.add(lst)
 		# self.session.commit()
 
-	def ChangeList(self, list_id, name):
+	def Comm(self):
+		""" Performs commit to database with simple exception handling
+		returns : True if there wasn't any problem, False otherwise
+		"""
+		try:
+			self.session.commit()
+		except SQLAlchemyError:
+			return False
+		return True
+
+	def ModifyList(self, list_id, name):
 		""" Perform changes in given list in database
 			list_id - id of the list
 			name - name of the list
 			user_id - id of the owner
-		returns: new List
+		returns: bool confirmation (True - ok, False - fail)
 		"""
 		print("Modyfing list data in database")
-		lst = GetSingleList(list_id)
+		lst = self.GetSingleList(list_id)
 		lst.Modify(name)
-		self.session.commit()
-		return lst
+		return self.Comm()
 
 	def GetSingleList(self, list_id):
 		""" Gets exact list (based on given list_id)
@@ -63,6 +73,14 @@ class DBMgr():
 		singleList = self.session.query(ListModel).\
 			filter_by(identifier=list_id).first()
 		return singleList
+
+	def DelList(self, list_id):
+		""" Dellete exact list (based on given list_id)
+		returns: bool confirm; True - ok
+		"""
+		listToDel = self.GetSingleList(list_id)
+		self.session.delete(listToDel)
+		return self.Comm()
 
 	def GetUserLists(self, user_id):
 		""" Gets every list that belongs to the user_id
@@ -83,3 +101,4 @@ class DBMgr():
 		newList = ListModel(name, user_id)
 		print("Sending list to database")
 		self.session.add(newList)
+		return self.Comm()

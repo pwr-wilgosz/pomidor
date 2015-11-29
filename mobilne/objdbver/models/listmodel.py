@@ -17,7 +17,7 @@ class ListModel(Base):
 	def __init__(self, in_name, in_uid, \
 		in_id=None, in_crat=datetime.now(), in_upat=datetime.now()):
 		if in_id == None:
-			in_id = self.ObtainListId()		
+			in_id = self.ObtainListId()
 		self.identifier = in_id
 		self.name = in_name
 		self.user_id = in_uid
@@ -29,7 +29,7 @@ class ListModel(Base):
 			.format(nazwa=self.name, \
 				cr=self.created_at.strftime("%d %b %Y, %H:%M"), \
 				mod=self.updated_at.strftime("%d %b %Y, %H:%M"))
-	
+
 	def __repr__(self):
 		return self.__str__()
 
@@ -50,3 +50,9 @@ class ListModel(Base):
 		self.name = name
 		self.updated_at = datetime.now()
 		return self
+
+	def IdNamePair(self):
+		""" Function that returns model as pair, for display purpose
+		returns: two vals - id, name of list
+		"""
+		return self.identifier, self.name

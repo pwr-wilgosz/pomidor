@@ -1,10 +1,14 @@
-from kivy.properties import ObjectProperty
+from kivy.properties import ObjectProperty, StringProperty
 from kivy.uix.floatlayout import FloatLayout
 from kivy.app import App
 from kivy.uix.popup import Popup
 from kivy.uix.button import Button
+from kivy.lang import Builder
 #from kivy.core.window import Window
 #Window.size = (480, 255)
+
+Builder.load_file('./gui/main.kv')
+# Builder.load_file('main.kv')
 
 class RootWidget(FloatLayout):
     lists_content=ObjectProperty(None)
@@ -13,10 +17,7 @@ class RootWidget(FloatLayout):
         super(RootWidget, self).__init__(**kwargs)
         self.lists_content.bind(minimum_height=self.lists_content.setter('height'))
         self.lists_content.add_widget(ListEntry())
-    '''This is the class representing your root widget.
-       By default it is inherited from BoxLayout,
-       you can use any other layout/widget depending on your usage.
-    '''
+
 
 class EditTaskPopup(Popup):
     pass
@@ -24,10 +25,14 @@ class EditTaskPopup(Popup):
 class DeleteTaskPopup(Popup):
     pass
 
+class InfoPopup(Popup):
+    pop_descr = StringProperty()
+
 class ListEntry(Button):
     pass
 
-class MainApp(App):
+
+class PomidorApp(App):
     '''This is the main class of your app.
        Define any app wide entities here.
        This class can be accessed anywhere inside the kivy app as,
@@ -42,7 +47,7 @@ class MainApp(App):
        Name of the .kv file that is auto-loaded is derived from the name
        of this class::
 
-         MainApp = main.kv
+         PomidorApp = main.kv
          MainClass = mainclass.kv
 
        The App part is auto removed and the whole name is lowercased.
@@ -63,5 +68,10 @@ class MainApp(App):
         p = DeleteTaskPopup()
         p.open()
 
+    def add_new_list(self, inputField):
+        info = "Adding new list: '{name}'".format(name=inputField.text)
+        p = InfoPopup(pop_descr=info)
+        p.open()
+
 if '__main__' == __name__:
-    MainApp().run()
+    PomidorApp().run()

@@ -1,5 +1,5 @@
 <time>
-    1448234840.67
+    1448653710.46
 </time>
 <files>
     <file>
@@ -18,13 +18,31 @@
         /home/rafszt/Programowanie/pomidor/mobilne/objdbver/gui/tests/screen_mgr_ex.py
     </file>
     <file>
+        /home/rafszt/Programowanie/pomidor/mobilne/objdbver/gui/tests/var_inherit.py
+    </file>
+    <file>
         /home/rafszt/Programowanie/pomidor/mobilne/objdbver/gui/tests/__init__.py
+    </file>
+    <file>
+        /home/rafszt/Programowanie/pomidor/mobilne/objdbver/gui/tests/var_ex/main.py
+    </file>
+    <file>
+        /home/rafszt/Programowanie/pomidor/mobilne/objdbver/gui/tests/var_ex/buildozer.spec
     </file>
 </files>
 <classes>
     <class>
          <name>
              RootWidget
+         </name>
+         <file>
+             /home/rafszt/Programowanie/pomidor/mobilne/objdbver/gui/main.py
+         </file>
+
+    </class>
+    <class>
+         <name>
+             InfoPopup
          </name>
          <file>
              /home/rafszt/Programowanie/pomidor/mobilne/objdbver/gui/main.py
@@ -64,6 +82,6 @@
          MainApp
     </class>
     <file>
-         /home/rafszt/Programowanie/pomidor/mobilne/objdbver/gui/main.py
+         /home/rafszt/Programowanie/pomidor/mobilne/objdbver/gui/tests/var_ex/main.py
     </file>
 </app>

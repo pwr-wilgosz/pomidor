@@ -10,18 +10,13 @@
 
         #Ramka z przesuwającymi się stronami
         PageLayout:
-            id: pages_container
-
             #LISTY ZADANIOWE!
             #Ramka strony
             GridLayout:
-                id: lists_main
                 spacing: 3
                 padding: 2
                 cols: 2
                 rows: 1
-
-                #tlo
                 canvas:
                     Color:
                         hsv:  .0, .0, .13
@@ -31,7 +26,6 @@
 
                 #Etykieta strony
                 Label:
-                    id: lists_label
                     text: "Wybierz listę"
                     size_hint_x: None
                     size: 20, 10
@@ -68,7 +62,7 @@
                             valign: 'middle'
                             hint_text: "Nazwa nowej listy"
                         Button:
-                            id: lists_new_accept
+                            on_release: app.add_new_list(lists_new_name)
                             size_hint_x:1
                             text: "Dodaj"
                     #Lista list
@@ -315,6 +309,34 @@
                         text: 'Save As'
                     ActionButton:
                         text: 'Quit'
+                        on_press: app.get_running_app().stop()
+
+
+<InfoPopup>:
+    size_hint: .5, .3
+    auto_dismiss: False
+    title: 'Info'
+
+
+    #Wprowadzanie nazwy nowej listy
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 5
+
+        Label:
+            multiline: False
+            size_hint_y: None
+            size: 0, 40
+            text_size: self.size
+            valign: 'middle'
+            text: root.pop_descr
+
+        BoxLayout:
+            spacing: 5
+
+            Button:
+                text: 'OK'
+                on_press: root.dismiss()
 
 <EditTaskPopup>:
     size_hint: .5, .3
@@ -425,18 +447,13 @@
 
         #Ramka z przesuwającymi się stronami
         PageLayout:
-            id: pages_container
-
             #LISTY ZADANIOWE!
             #Ramka strony
             GridLayout:
-                id: lists_main
                 spacing: 3
                 padding: 2
                 cols: 2
                 rows: 1
-
-                #tlo
                 canvas:
                     Color:
                         hsv:  .0, .0, .13
@@ -446,7 +463,6 @@
 
                 #Etykieta strony
                 Label:
-                    id: lists_label
                     text: "Wybierz listę"
                     size_hint_x: None
                     size: 20, 10
@@ -483,7 +499,7 @@
                             valign: 'middle'
                             hint_text: "Nazwa nowej listy"
                         Button:
-                            id: lists_new_accept
+                            on_release: app.add_new_list(lists_new_name)
                             size_hint_x:1
                             text: "Dodaj"
                     #Lista list
@@ -730,6 +746,34 @@
                         text: 'Save As'
                     ActionButton:
                         text: 'Quit'
+                        on_press: app.get_running_app().stop()
+
+
+<InfoPopup>:
+    size_hint: .5, .3
+    auto_dismiss: False
+    title: 'Info'
+
+
+    #Wprowadzanie nazwy nowej listy
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 5
+
+        Label:
+            multiline: False
+            size_hint_y: None
+            size: 0, 40
+            text_size: self.size
+            valign: 'middle'
+            text: root.pop_descr
+
+        BoxLayout:
+            spacing: 5
+
+            Button:
+                text: 'OK'
+                on_press: root.dismiss()
 
 <EditTaskPopup>:
     size_hint: .5, .3

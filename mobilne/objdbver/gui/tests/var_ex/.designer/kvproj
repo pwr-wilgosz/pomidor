@@ -1,0 +1,30 @@
+<time>
+    1448647458.69
+</time>
+<files>
+    <file>
+        /home/rafszt/Programowanie/pomidor/mobilne/objdbver/gui/tests/var_ex/buildozer.spec
+    </file>
+    <file>
+        /home/rafszt/Programowanie/pomidor/mobilne/objdbver/gui/tests/var_ex/main.py
+    </file>
+</files>
+<classes>
+    <class>
+         <name>
+             RootWidget
+         </name>
+         <file>
+             /home/rafszt/Programowanie/pomidor/mobilne/objdbver/gui/tests/var_ex/main.py
+         </file>
+
+    </class>
+</classes>
+<app>
+    <class>
+         MainApp
+    </class>
+    <file>
+         /home/rafszt/Programowanie/pomidor/mobilne/objdbver/gui/tests/var_ex/main.py
+    </file>
+</app>
