@@ -8,6 +8,7 @@
     task_imp_urg: task_imp_urg
     task_imp_nurg: task_imp_nurg
     task_nimp_nurg: task_nimp_nurg
+    counter_enabled: counter_enabled
 
     GridLayout:
         id: root_window
@@ -286,8 +287,28 @@
                         PopMatrix
 
                 #Strona - zawartość
-                Label:
-                    text: 'czasomierz'
+                BoxLayout:
+                    orientation: 'vertical'
+
+                    Label:
+                        font_size: '50dp'
+                        text_size: self.size
+                        text: root.timer_header
+                        markup: True
+
+                    Label:
+                        text: root.timer_details
+
+                    BoxLayout:
+                        Label:
+                            text: 'Odliczanie'
+                        Switch:
+                            id: counter_enabled
+
+                    Label:
+                        font_size: '50dp'
+                        text: root.timer_time
+
 
         #pasek menu - dolny
         ActionBar:
@@ -303,14 +324,6 @@
                     mode: 'spinner'
                     size_hint_x: None
                     width: 90
-                    ActionButton:
-                        text: 'New'
-                    ActionButton:
-                        text: 'Open'
-                    ActionButton:
-                        text: 'Save'
-                    ActionButton:
-                        text: 'Save As'
                     ActionButton:
                         text: 'Quit'
                         on_press: app.get_running_app().stop()

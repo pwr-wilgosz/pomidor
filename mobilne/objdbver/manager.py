@@ -147,20 +147,21 @@ class Manager:
 		"""
 		self.pickedTaskId = task_id
 
-	def PickedListTaskNamePair(self):
-		""" Returns picked by user list and task ids pairs
-		returns: two items: list_id and task_id
+
+	def PickedListTaskData(self):
+		""" Returns picked by user list and task raw data pairs
+		returns: two items: listName and taskRaw
 		"""
 		listName = None
-		taskName = None
+		taskRaw = None
 		if self.pickedListId != None:
 			pickedList = self.db.GetSingleList(self.pickedListId)
 			listName = pickedList.name
 		if self.pickedTaskId != None:
 			pickedTask = self.db.GetSingleTask(self.pickedTaskId)
-			taskName = pickedTask.name
+			taskRaw = [pickedTask.IdNamePriorDict()]
 
-		return listName, taskName
+		return listName, taskRaw
 
 	#TASKS
 	def GetTasksToView(self):

@@ -5,6 +5,7 @@ from kivy.uix.floatlayout import FloatLayout
 from kivy.clock import Clock
 from kivy.app import App
 from kivy.lang import Builder
+import datetime
 
 from popups import InfoPopup, ServReqPopup, \
                 AddListPopup, CreateTaskPopup
@@ -57,8 +58,15 @@ class PomidorApp(App):
         else:
             self.dataManip.SetList(list_id)
 
-        listTaskNamePair = self.dataManip.PickedListTaskNamePair()
-        self.rootScr.SetPagesLabels(listTaskNamePair[0], listTaskNamePair[1])
+        listTaskRawData = self.dataManip.PickedListTaskData()
+        taskObj = None
+        taskName = None
+        if listTaskRawData[1] != None:
+            taskObj = RawToGuiTasks(listTaskRawData[1])[0]
+            taskName = taskObj.name
+        listName = listTaskRawData[0]
+        self.rootScr.SetPagesLabels(listName, taskName)
+        self.rootScr.SetTimerHeaders(listName, taskObj)
         self.rootScr.ReloadTasksView()
 
 
@@ -117,14 +125,20 @@ class RootWidget(Screen):
     task_nimp_urg = ObjectProperty(None)
     task_imp_nurg = ObjectProperty(None)
     task_nimp_nurg = ObjectProperty(None)
+    counter_enabled = ObjectProperty(None)
     list_label = StringProperty('Wybierz liste')
     task_label = StringProperty('Wybierz zadanie')
+    timer_header = StringProperty('Wybierz listę oraz zadanie')
+    timer_details = StringProperty('oczekuję na wybór')
+    timer_time = StringProperty('25:00')
     dataManip = None
+    endTime = None
 
     def __init__(self, manager, **kwargs):
         super(RootWidget, self).__init__(**kwargs)
         self.dataManip = manager
         self.lists_content.bind(minimum_height=self.lists_content.setter('height'))
+        self.counter_enabled.bind(active=self.EnableCountDown)
 
     def on_enter(self):
         app = App.get_running_app()
@@ -185,6 +199,36 @@ class RootWidget(Screen):
 
         self.list_label = list_label
         self.task_label = task_label
+
+    def SetTimerHeaders(self, list_name = None, task_obj = None):
+        """ Sets labels in timer page
+        """
+        self.timer_header = 'Wybierz listę oraz zadanie'
+        self.timer_details = 'oczekuję na wybór'
+        if list_name != None and task_obj != None:
+            self.timer_header = '[b] {list}[/b] - [i]{task}[/i]'.\
+                    format(list = list_name, task = task_obj.name)
+            self.timer_details = '(priorytet: {prior}, pozostało cykli: {cyc})'.\
+                    format(prior = task_obj.priority, cyc = task_obj.duration)
+
+    def EnableCountDown(self, instance,  value):
+        """ Catch callback on timer activation state
+        """
+        if value == True:
+            self.endTime = datetime.datetime.now() + datetime.timedelta(minutes=25)
+            Clock.schedule_interval(self.UpdateClock, 1)
+        else:
+            Clock.unschedule(self.UpdateClock)
+
+    def UpdateClock(self, dt):
+        """Repost label that notify user about time elapsed
+        """
+        remainTime = self.endTime - datetime.datetime.now()
+        s = remainTime.seconds
+        self.timer_time = '{:02}:{:02}'.format(s % 3600 // 60, s % 60)
+        if remainTime <= datetime.timedelta():
+            self.counter_enabled.active = False
+
 
     def add_new_list(self, inputField):
         # info = "Adding new list: '{name}'".format(name=inputField.text)
