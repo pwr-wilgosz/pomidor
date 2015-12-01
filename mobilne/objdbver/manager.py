@@ -2,11 +2,17 @@ from models.dbmgr import DBMgr
 # from models.model import Model
 from models.listmodel import ListModel
 from gui.main import PomidorApp
+from servcomm import ServComm
+
+defaultServer = 'http://tomato-cal.herokuapp.com'
+defaultLogin = 'rekonfiguracja@projekt.pwr'
+defaultPass = 'listy_zadan'
 
 class Manager:
 	def __init__(self):
 		self.db = None
 		self.gui = None
+		self.servComm = None
 		self.currUserId = None
 		self.servAuth = None
 		self.pickedListId = None
@@ -18,6 +24,8 @@ class Manager:
 		"""
 		self.db = DBMgr()
 		self.gui = PomidorApp(self)
+		logon = [defaultLogin, defaultPass]
+		self.servComm = ServComm(logon)
 
 		self.RunDB()
 		#self.RunGui()
