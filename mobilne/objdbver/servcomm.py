@@ -6,25 +6,38 @@ class ServComm():
     server_url = None
     authKey = ''
 
-    def __init__(self, servUrl, loginDataPair = None):
+    def __init__(self, servUrl, login = None, password = None):
         self.server_url = servUrl
-        if loginDataPair != None:
-            self.authKey = self.login(loginDataPair)
 
-    def login(self, loginDataPair):
+    def login(self, login, password):
         """Logowanie do systemu, utworzenie sesji, pobranie identyfikatora
             loginDataPair - login [0] i haslo [1] dostepowe do serwera
-        returns: ciag do autoryzacji (klucz sesji)
+        returns: None
         """
         server_url = self.server_url
-        login = loginDataPair[0]
-        password = loginDataPair[1]
+
+        params = urllib.urlencode({'email': login, 'password': password})
+        # headers = {'Content-type': 'application/json',\
+        #   'Accept': 'application/json'}
+        # headers = {
+        #     'Content-Type': 'application/json',
+        # }
+
         #wyslanie danych logowania
-        res = self.post(server_url + "/login.json", params=[
-                ['email', login], ['password', password]],
-                description="Inicjalizacja sesji")
-        bodyDict = json.loads(res.body)
-        return bodyDict['access_token']
+        res = UrlRequest(self.server_url + "/login.json",\
+                on_success=self.loginSucc, req_body=params)
+
+
+    def loginSucc(self, req, result):
+        """ Zapis uzyskanego autoryzacji
+            req - Zapytanie
+            result - odpowiedz serwera
+        returns: None
+        """
+        print("Login success!!!")
+        # bodyDict = json.loads(result)
+        # self.authKey = bodyDict['access_token']
+
 
     def processWholeData(self):
         """Pobranie danych list zadaniowych w celu wykonywania szczegolowych zapytan

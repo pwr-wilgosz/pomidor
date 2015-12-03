@@ -24,8 +24,7 @@ class Manager:
 		"""
 		self.db = DBMgr()
 		self.gui = PomidorApp(self)
-		logon = [defaultLogin, defaultPass]
-		self.servComm = ServComm(logon)
+		self.servComm = ServComm(defaultServer)
 
 		self.RunDB()
 		#self.RunGui()

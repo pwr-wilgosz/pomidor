@@ -1,38 +1,45 @@
 \select@language {polish}
 \contentsline {chapter}{\numberline {1}Wst\IeC {\k e}p}{3}{chapter.1}
 \contentsline {section}{\numberline {1.1}Cel projektu}{3}{section.1.1}
-\contentsline {section}{\numberline {1.2}Opis problemu}{3}{section.1.2}
-\contentsline {subsection}{\numberline {1.2.1}Wymagania}{4}{subsection.1.2.1}
-\contentsline {subsection}{\numberline {1.2.2}Ograniczenia}{5}{subsection.1.2.2}
-\contentsline {section}{\numberline {1.3}Opis rozwi\IeC {\k a}zania i wykorzystanych technologii}{5}{section.1.3}
-\contentsline {subsection}{\numberline {1.3.1}Aplikacja serwerowa}{5}{subsection.1.3.1}
-\contentsline {subsection}{\numberline {1.3.2}Instalacja i uruchomienie aplikacji serwerowej}{6}{subsection.1.3.2}
-\contentsline {chapter}{\numberline {2}Implementacja}{7}{chapter.2}
-\contentsline {section}{\numberline {2.1}Implementacja aplikacji serwerowej}{7}{section.2.1}
-\contentsline {section}{\numberline {2.2}Implementacja aplikacji rpi}{7}{section.2.2}
-\contentsline {chapter}{\numberline {3}Dostarczone API}{9}{chapter.3}
-\contentsline {section}{\numberline {3.1}Obs\IeC {\l }uga b\IeC {\l }\IeC {\k e}d\IeC {\'o}w}{9}{section.3.1}
-\contentsline {subsection}{\numberline {3.1.1} Forbidden}{9}{subsection.3.1.1}
-\contentsline {subsection}{\numberline {3.1.2} Not found}{10}{subsection.3.1.2}
-\contentsline {subsection}{\numberline {3.1.3} Unprocessable entity (422)}{10}{subsection.3.1.3}
-\contentsline {subsection}{\numberline {3.1.4} Invalid (unauthorized) (401)}{10}{subsection.3.1.4}
-\contentsline {subsection}{\numberline {3.1.5}Invalid (406)}{11}{subsection.3.1.5}
-\contentsline {section}{\numberline {3.2}Sesje logowania}{11}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Logowanie}{11}{subsection.3.2.1}
-\contentsline {subsubsection}{Odpowiedzi:}{11}{section*.2}
-\contentsline {section}{\numberline {3.3}Zarz\IeC {\k a}dzanie listami}{12}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}Pobranie list zada\IeC {\'n}:}{12}{subsection.3.3.1}
-\contentsline {subsubsection}{Odpowiedzi:}{12}{section*.3}
-\contentsline {subsection}{\numberline {3.3.2}Pobranie pojedynczej listy zada\IeC {\'n}:}{13}{subsection.3.3.2}
-\contentsline {subsubsection}{Odpowiedzi:}{13}{section*.4}
-\contentsline {subsection}{\numberline {3.3.3}Tworzenie listy}{14}{subsection.3.3.3}
-\contentsline {subsubsection}{Odpowiedzi:}{14}{section*.5}
-\contentsline {section}{\numberline {3.4}Zarz\IeC {\k a}dzanie zadaniami}{14}{section.3.4}
-\contentsline {subsection}{\numberline {3.4.1}Pobranie zada\IeC {\'n} danej listy:}{14}{subsection.3.4.1}
-\contentsline {subsubsection}{Odpowiedzi:}{15}{section*.6}
-\contentsline {subsection}{\numberline {3.4.2}Pobranie pojedynczego zadania:}{15}{subsection.3.4.2}
-\contentsline {subsubsection}{Odpowiedzi:}{16}{section*.7}
-\contentsline {subsection}{\numberline {3.4.3}Tworzenie zadania}{16}{subsection.3.4.3}
-\contentsline {subsubsection}{Odpowiedzi:}{17}{section*.8}
-\contentsline {section}{\numberline {3.5}Synchronizacja}{17}{section.3.5}
-\contentsline {chapter}{\numberline {4}Wnioski}{19}{chapter.4}
+\contentsline {subsection}{\numberline {1.1.1}Opis aplikacji}{3}{subsection.1.1.1}
+\contentsline {subsection}{\numberline {1.1.2}Definicje}{4}{subsection.1.1.2}
+\contentsline {subsection}{\numberline {1.1.3}Techniki wspomagaj\IeC {\k a}ce zarz\IeC {\k a}dzanie sob\IeC {\k a} w czasie}{4}{subsection.1.1.3}
+\contentsline {subsubsection}{Get Things Done}{4}{section*.2}
+\contentsline {subsubsection}{Pomodoro}{4}{section*.3}
+\contentsline {subsubsection}{Macierz Eisenhowera}{5}{section*.4}
+\contentsline {section}{\numberline {1.2}Opis problemu}{5}{section.1.2}
+\contentsline {subsection}{\numberline {1.2.1}Wymagania}{6}{subsection.1.2.1}
+\contentsline {subsection}{\numberline {1.2.2}Ograniczenia}{7}{subsection.1.2.2}
+\contentsline {chapter}{\numberline {2}Rozwi\IeC {\k a}zanie}{9}{chapter.2}
+\contentsline {section}{\numberline {2.1}Koncepcje zwi\IeC {\k a}zane z projektowanym systemem}{9}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Model systemu rozproszonego}{9}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}Platforma mikroprocesorowa}{10}{subsection.2.1.2}
+\contentsline {section}{\numberline {2.2}Tworzenie interaktywnej aplikacji}{14}{section.2.2}
+\contentsline {section}{\numberline {2.3}Aplikacja serwerowa}{16}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Instalacja i uruchomienie aplikacji serwerowej}{17}{subsection.2.3.1}
+\contentsline {chapter}{\numberline {3}Dostarczone API}{19}{chapter.3}
+\contentsline {section}{\numberline {3.1}Obs\IeC {\l }uga b\IeC {\l }\IeC {\k e}d\IeC {\'o}w}{19}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1} Forbidden}{19}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2} Not found}{20}{subsection.3.1.2}
+\contentsline {subsection}{\numberline {3.1.3} Unprocessable entity (422)}{20}{subsection.3.1.3}
+\contentsline {subsection}{\numberline {3.1.4} Invalid (unauthorized) (401)}{20}{subsection.3.1.4}
+\contentsline {subsection}{\numberline {3.1.5}Invalid (406)}{21}{subsection.3.1.5}
+\contentsline {section}{\numberline {3.2}Sesje logowania}{21}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Logowanie}{21}{subsection.3.2.1}
+\contentsline {subsubsection}{Odpowiedzi:}{21}{section*.5}
+\contentsline {section}{\numberline {3.3}Zarz\IeC {\k a}dzanie listami}{22}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Pobranie list zada\IeC {\'n}:}{22}{subsection.3.3.1}
+\contentsline {subsubsection}{Odpowiedzi:}{22}{section*.6}
+\contentsline {subsection}{\numberline {3.3.2}Pobranie pojedynczej listy zada\IeC {\'n}:}{23}{subsection.3.3.2}
+\contentsline {subsubsection}{Odpowiedzi:}{23}{section*.7}
+\contentsline {subsection}{\numberline {3.3.3}Tworzenie listy}{24}{subsection.3.3.3}
+\contentsline {subsubsection}{Odpowiedzi:}{24}{section*.8}
+\contentsline {section}{\numberline {3.4}Zarz\IeC {\k a}dzanie zadaniami}{24}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}Pobranie zada\IeC {\'n} danej listy:}{24}{subsection.3.4.1}
+\contentsline {subsubsection}{Odpowiedzi:}{25}{section*.9}
+\contentsline {subsection}{\numberline {3.4.2}Pobranie pojedynczego zadania:}{25}{subsection.3.4.2}
+\contentsline {subsubsection}{Odpowiedzi:}{26}{section*.10}
+\contentsline {subsection}{\numberline {3.4.3}Tworzenie zadania}{26}{subsection.3.4.3}
+\contentsline {subsubsection}{Odpowiedzi:}{27}{section*.11}
+\contentsline {section}{\numberline {3.5}Synchronizacja}{27}{section.3.5}
+\contentsline {chapter}{\numberline {4}Wnioski}{29}{chapter.4}

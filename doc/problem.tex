@@ -1,6 +1,21 @@
-Istnieje wiele systemów, które wspomagają prowadzenie i organizację projektów. Są one tworzone głównie z myślą o wykonawcy zleceń, jak i o organizatorach. Zasadą ich działania jest zbieranie informacji od użytkownika dotyczące niezbędnych do wykonania zadań oraz układanie ich w formie planu - terminarza. W użyciu przypominają rozbudowany kalendarz umożliwiający łatwe dodawanie nowych zadań oraz podpowiadającego efektywne zagospodarowanie czasu.
+W dobie dynamicznego wzrostu popularności aplikacji użytkowych na platformy mobilne (rys. \ref{figure:app_download}), oraz w momencie dynamicznego rozwoju technologii związanej z pojęciem Internet of Things, platformy mikroprocesorowe stają przed wyzwaniem zapewnienia funkcjonalności znanych z programów pisanych z myślą o jednostkach stacjonarnych oraz sprostaniem specyficznym wymaganiom dotyczącym rozmiaru, źródła zasilania i obsługi urządzeń nietypowych dla środowiska komputerowego .
+
+Zarówno w przypadku oprogramowania obslugującego platformy mobilne \cite{bib:mobile-challenge}, jak i w przypadku koncepcji Internet of Things, nie zostały ustalone normy standaryzujące proces tworzenia oprogramowania, czy kontrukcji systemów opartych na połączeniu aplikacji webowych i mobilnych lub stacjonarnych. Za cel pracy przyjęto zaprojektowanie platformy mikroprocesorowej będącej zgodną z aktualnymi trendami rozwoju inżynierii internetowej. Wybory i założenia przyjęte podczas prac są tłumaczone, tak, by w oparciu o nich, móc odpowiedzieć na pytanie o granice adaptowalności, skalowalności i możliwości rozwoju systemów wbudowanych jako rozproszonego środowiska działania aplikacji użytkowych.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\textwidth]{images/app_downloads.png}
+  \caption{Wykres ilości pobrań aplikacji mobilnych dostosowanych do systemu operacyjnego popularnego producenta urządzeń mobilnych na przestrzeni ostatnich 7 lat.}
+  \label{figure:app_download}
+\end{figure}
+\FloatBarrier
+
+
 
 \subsection{Wymagania} % (fold)
+Określenie wymagań stawianych projektowanemu systemowi zostało oparte o analizę potrzeb użytkownika na przykładzie aplikacji wspomagającej zarządzaniem czasem, oraz ogólno-przyjętymi wyznaczkami jakimi charakteruzją się aplikacje mobilne\cite{bib:mobile-paradigm}.
+
+
 \label{sub:wymagania}
 System przeznaczony jest dla pojedynczych użytkowników, do użytku własnego. Z tej perspektywy ważnymi, ale nie kluczowymi wyznacznikami urządzenia są:
 \begin{enumerate}

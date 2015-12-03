@@ -1,5 +1,42 @@
-Celem projektu jest stworzenie systemu mającego rozwiązać problem niskiej efektywności pracy osoby zaangażowanej w wiele różnych projektów, przy użyciu platformy mikroprocesorowej, łacza sieciowego oraz aplikacji serwerowej.
+Celem projektu jest stworzenie systemu mającego wspomagać zarządzaniem czasem i zadaniami przy użyciu platformy mikroprocesorowej, łacza sieciowego oraz aplikacji serwerowej.
 
 Projekt obejmuje zaprojektowanie i stworzenie autonomicznego urządzenia wspomagającego zarządzenie czasem, serwisu internetowego udostępniającymi te same funkcjonalności w tym tworzenie i prezentację zadań oraz stworzenie i wdrożenie metody synchronizacji danych pomiędzy urządzeniem, a serwisem webowym.
 
 Platforma mikroprocesorowa będzie docelowo wykorzystywana w środowisku domowym jako element wyposażenia. Powinna być łatwo dostępna, dawać możliwość kożystania z niej bez użycia klawiatury, myszy i osobnego ekranu.
+
+Dokument zawiera opis zakresu prac, wymagania użytkowe i funkcjonalne stawiane systemowi, projekt rozwiązania, analizę dostępnych technologii i motywację wyboru konkretnych w celu przeprowadzenia implementacji rozwiązania. W dokumencie proponujemy autorskie rozwiązanie dotyczące wersjonowania i synchronizacji danych pomiędzy aplikacją tworzoną na platofrmę mobilną (system wbudowany), oraz aplikacją internetową. Wnioski zawierają analizę trafności decyzji podjętych na etapie projektowania i implementacji rozwiązania pod kątem jakości, prędkości działania i dostosowania technologii do konkretnego rozwiązania.
+
+\subsection{Opis aplikacji}
+\label{sub:Opis aplikacji}
+
+Elementem projektu, który go wyróżnia wśród dostępnych rozwiązań jest oprogramowanie. Podstawową funkcją którą realizuje, jest układanie list zadań do wykonania. Funkcja wspomagająca wykonywanie zadań bazuje na technice Pomodoro. Więcej o niej w sekcji \ref{ssub:techniki_wspomagaj_ce_zarz_dzanie_sob_w_czasie}. Zadania posiadają parametry: nazwa, wartość określająca przynależność do jednej z list, złożoność (parametr szacowany pod kątem techniki Pomodoro) oraz priorytet (parametr wynikający z techniki związanej z matrycą Eisenohwera (więcej w sekcji \ref{ssub:techniki_wspomagaj_ce_zarz_dzanie_sob_w_czasie})).
+
+% chapter chapter_name (end)
+\subsection{Definicje} % (fold)
+\label{sec:definicje}
+W ramach projektu zamierzamy stworzyć dwie aplikacje. Pierwsza z nich będzie aplikacją internetową, druga będzie aplikacją na platformę mikroprocesorową. W celu ułatwienia opisu przyjmujemy, że termin \textit{urządzenie} odnosić się będzie do platformy mikroprocesorowej oraz termin \textit{serwis internetowy} odnosić się będzie do aplikacji internetowej.
+
+\textit{Zadanie} jest zdarzeniem, czynnością lub zbiorem czynności które pozostają do wykonania.
+\textit{Złożoność} jest parametrem zadania, które określa ile \textit{pomidorów} jest niezbędnych do jego wykonania.
+\textit{Pomidor} jeden cykl okresów pracy i przerw techniki Pomodoro.
+\textit{Priorytet} parametr zadania, wynika z techniki matrycy Eisenhowera. Może przyjmować jedną z wartości: ważne i pilne, ważne i nie pilne, nie ważne i pilne, nie ważne i nie pilne.
+\textit{Działanie} to czynność, która prowadzi do osiągnięcia zamierzonego efektu. Działanie, które nie jest nastawione na określony cel, z punktu widzenia technik zarządzania czasem, jest nieprzewidywalne, niemierzalne i  bezwartościowe.
+% chapter definicje (end)
+
+\subsection{Techniki wspomagające zarządzanie sobą w czasie} % (fold)
+\label{ssub:techniki_wspomagaj_ce_zarz_dzanie_sob_w_czasie}
+\subsubsection{Get Things Done}
+Cel i działanie są pojęciami, które są szczególnie istotnie z punktu widzenia tej techniki. Według niej złe określenie przedmiotu działania jest równoznaczne z jego brakiem. Cel musi być \textbf{konkretny}, \textbf{realny}, \textbf{określony w miejscu i czasie}. Jego sformułowanie powinno być wyrażone w sposób \textbf{pozytywny}, motywujący do działania, stanowiący wyzwanie, nie deprecjonujący niczego i nikogo. Według opisu autora - Davida Allena - można ułożyć algorytmy, które pozwalają na sformułowanie dobrego celu oraz ich realizację.
+
+\subsubsection{Pomodoro} % (fold)
+\label{ssub:pomodoro}
+W tej technice ważnymi pojęciami są \textit{okres pracy} i \textit{przerwa}. Udowodniono, że umysł najlepiej pracuje, w momencie gdy jest wypoczęty, najczęściej rano. W miarę upływu czasu umysł się męczy, tempo się zmniejsza, podatność na błędy wzrasta. Aby utrzymać jego sprawność na wysokim poziomie należy organizować regularne przerwy. Kilkuminutowy, aktywny wypoczynek spowoduje odprężenie po wysiłku i pobudzenie w związku z nową sytuacją. Tak definiowana jest \textit{przerwa}.
+
+\textit{Okres pracy} jest chwilą, w której należy się skupić wyłącznie na wykonywanym zadaniu. Badania dowodzą, że jesteśmy się w stanie skupić na jednej rzeczy około 30 minut. Tyle też trwa sugerowany czas pojedynczego okresu.
+
+\textit{Pomidor} jest zbiorem trzech okresów pracy, pomiędzy którymi znajdują się małe, 5 minutowe przerwy. Po ukończeniu pomidora zalecane jest zrobienie sobie dłuższej przerwy (15 minut).
+
+\subsubsection{Macierz Eisenhowera} % (fold)
+\label{ssub:macierz_eisenhowera}
+Koncepcja polega na podziale swoich zadań na grupy - ćwiartki macierzy 2x2. Kolumny noszą nazwy: ważne i nie ważne; wiersze: pilne, nie pilne. Na skrzyżowaniu ważne i pilne znajdują się zadania, które należy wykonać natychmiast. Na skrzyżowaniu nie ważne i pilne umieszczane są zadania które są naszymi marzeniami i pragnieniami. Warto je zrobić w wolnej chwili. Na skrzyżowaniu ważne i nie pilne znajdują się zadania, które są dla nas istotne, ale które możemy komuś delegować, albo wykonywać przy czyjejś współpracy. Zadań z komórki na skrzyżowaniu nie ważne i i nie pilne należy unikać, i możliwie szybko usuwać.
+% subsection techniki_wspomagaj_ce_zarz_dzanie_sob_w_czasie (end)
